@@ -4,7 +4,9 @@
 
 這個儲存庫放的是 **Bookmarklet Launcher** 網站：一個可將 JavaScript 小工具加入瀏覽器書籤列的清單。點擊已儲存的書籤，腳本就會在目前瀏覽的網頁執行。網站是純靜態網站，提供工具清單與腳本檔案，不需要後端或擴充功能。
 
-[Bookmarklet Script Manager 瀏覽器擴充功能](https://github.com/tony92151/bookmarklet-launcher)是另一個專案。這個儲存庫提供它的[隱私權政策](privacy.html)，但不包含擴充功能原始碼。
+另一個專案的 [Bookmarklet Script Manager 瀏覽器擴充功能](https://chromewebstore.google.com/detail/bookmarklet-script-manage/eodhedafaheiadegenafmjlkmifojemp)已在 Chrome 線上應用程式商店上架。這個儲存庫提供它的[隱私權政策](privacy.html)，但不包含擴充功能原始碼。
+
+直接開啟網站：[GitHub Pages 上的 Bookmarklet Launcher](https://tony92151.github.io/bookmarklet-script-manager-market/)。
 
 ## 專案內容
 

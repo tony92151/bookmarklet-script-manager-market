@@ -4,7 +4,9 @@
 
 This repository contains the **Bookmarklet Launcher** website: a catalog of small JavaScript tools that you can save to your browser's bookmarks bar. Clicking a saved bookmark runs its script on the page you are viewing. The website is static; it serves the catalog and script files without a backend or an extension.
 
-The [Bookmarklet Script Manager browser extension](https://github.com/tony92151/bookmarklet-launcher) is a separate project. This repository hosts its [privacy policy](privacy.html), but does not contain the extension source.
+The separate [Bookmarklet Script Manager browser extension](https://chromewebstore.google.com/detail/bookmarklet-script-manage/eodhedafaheiadegenafmjlkmifojemp) is available on the Chrome Web Store. This repository hosts its [privacy policy](privacy.html), but does not contain the extension source.
+
+Open the website: [Bookmarklet Launcher on GitHub Pages](https://tony92151.github.io/bookmarklet-script-manager-market/).
 
 ## What's here
 
