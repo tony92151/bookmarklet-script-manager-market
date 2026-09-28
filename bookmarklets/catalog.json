@@ -28,6 +28,22 @@
         "zh-TW": "在飯店價格旁顯示台幣每哩成本或美元每元可得哩程，滑鼠停留可查看計算明細。"
       },
       "source": "bookmarklets/staymiles-rate-helper-zh.js",
+      "screenshots": {
+        "before": {
+          "src": "bookmarklets_screenshot/staymiles-rate-helper-zh/before.png",
+          "alt": {
+            "en": "StayMiles hotel price before the mileage rate is added",
+            "zh-TW": "尚未顯示每哩成本的 StayMiles 飯店價格"
+          }
+        },
+        "after": {
+          "src": "bookmarklets_screenshot/staymiles-rate-helper-zh/after.png",
+          "alt": {
+            "en": "StayMiles hotel price with a green 3.39 TWD per mile badge",
+            "zh-TW": "StayMiles 飯店價格旁顯示綠色 3.39 元每哩標籤"
+          }
+        }
+      },
       "matches": [
         "https://www.staymiles.china-airlines.com/search",
         "https://www.staymiles.china-airlines.com/hotel*"
@@ -46,6 +62,22 @@
         "zh-TW": "在飯店價格旁顯示台幣每哩成本或美元每元可得哩程，滑鼠停留可查看計算明細。"
       },
       "source": "bookmarklets/eva-mileage-hotel-healper-zh.js",
+      "screenshots": {
+        "before": {
+          "src": "bookmarklets_screenshot/eva-mileage-hotel-healper-zh/before.png",
+          "alt": {
+            "en": "EVA hotel price before the mileage rate is added",
+            "zh-TW": "尚未顯示每哩成本的長榮哩程飯店價格"
+          }
+        },
+        "after": {
+          "src": "bookmarklets_screenshot/eva-mileage-hotel-healper-zh/after.png",
+          "alt": {
+            "en": "EVA hotel price with a green 2.07 TWD per mile badge",
+            "zh-TW": "長榮哩程飯店價格旁顯示綠色 2.07 元每哩標籤"
+          }
+        }
+      },
       "matches": [
         "https://hotel.brmile.com/search",
         "https://hotel.brmile.com/details"
