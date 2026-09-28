@@ -11,7 +11,7 @@
 
   const translations = {
     en: {
-      documentTitle: 'Bookmarklet Launcher — Browse browser tools',
+      documentTitle: 'Bookmarklet Market — Browse browser tools',
       github: 'GitHub',
       extension: 'Extension',
       eyebrow: 'Browser tools',
@@ -43,7 +43,7 @@
       updated: 'Updated'
     },
     'zh-TW': {
-      documentTitle: 'Bookmarklet Launcher — 瀏覽書籤工具',
+      documentTitle: 'Bookmarklet Market — 瀏覽書籤工具',
       github: 'GitHub',
       extension: '擴充功能',
       eyebrow: '瀏覽器工具',
