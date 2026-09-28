@@ -23,6 +23,8 @@ The catalog currently has one tool: [Klook Booking Category Labels](bookmarklets
 
 ## Install and use a tool
 
+See the [animated installation guide](install.en.html). Version 1.2.1 is now available in the Chrome Web Store; GitHub import requires version 1.2.1 or later.
+
 1. Open the website and review a tool's description, intended URL pattern, and source code.
 2. Drag **Install** to your bookmarks bar, or right-click it and save the link as a bookmark. **Copy code** lets you paste the full `javascript:` URL into a bookmark manually.
 3. Visit a supported page and click the saved bookmark.

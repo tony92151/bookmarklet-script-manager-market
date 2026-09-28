@@ -13,6 +13,7 @@
 | 路徑 | 用途 |
 | --- | --- |
 | [`index.html`](index.html) 與 [`assets/install.js`](assets/install.js) | 中英文工具清單頁，載入腳本並提供安裝與複製功能。 |
+| [`install.html`](install.html) | 從 Chrome 線上應用程式商店安裝擴充功能，再從 Market 匯入 GitHub 工具的繁體中文教學。 |
 | [`bookmarklets/catalog.json`](bookmarklets/catalog.json) | 工具資訊、原始碼路徑與預期適用的網址格式。 |
 | [`bookmarklets/`](bookmarklets/) | 各書籤工具的 JavaScript 原始碼。 |
 | [`shared/bookmarklet.js`](shared/bookmarklet.js) | `javascript:` 書籤網址的編碼與解碼。 |
@@ -23,9 +24,12 @@
 
 ## 安裝與使用
 
-1. 開啟網站，先查看工具說明、適用網址格式與原始碼。
-2. 將「安裝」拖到書籤列，或對連結按右鍵並儲存為書籤。也可以按「複製程式碼」，把完整的 `javascript:` 網址手動貼進書籤。
-3. 前往適用頁面，點擊儲存的書籤。
+完整步驟請見[安裝教學](install.html)。擴充功能 1.2.1 版已於 Chrome 線上應用程式商店正式發佈。GitHub 匯入功能需要 1.2.1 或更新版本。
+
+1. 安裝 Bookmarklet Script Manager 擴充功能。
+2. 在 Market 工具卡片按「複製 GitHub 連結」。
+3. 開啟擴充功能的「管理指令碼」，在「GitHub」分頁貼上連結並儲存。
+4. 前往適用網站，從擴充功能選擇已儲存的工具執行。
 
 書籤工具會在目前網頁執行，並可與頁面內容互動。安裝前請先檢視腳本。清單中的網址格式用來說明工具預期適用的頁面；它不會限制你能在哪些頁面點擊書籤。
 
@@ -51,7 +55,7 @@ node --experimental-default-type=module --test
 2. 在 [`catalog.json`](bookmarklets/catalog.json) 新增紀錄，填入唯一的 `id`、英文與繁體中文的 `name` 和 `description`、位於 `bookmarklets/` 的 `source`、預期適用網址 `matches`、`version` 和 `updated`。
 3. 執行測試，並在目標頁面實際安裝、點擊書籤驗證結果。
 
-清單頁會讀取每個原始碼檔案，在瀏覽器中轉成可安裝的 `javascript:` 網址。更多製作準則見 [`skill.md`](skill.md)。
+清單頁提供每個原始碼檔案的 GitHub 連結，供擴充功能匯入。更多製作準則見 [`skill.md`](skill.md)。
 
 ## 部署
 
