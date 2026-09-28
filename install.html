@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="從 Chrome 線上應用程式商店安裝 Bookmarklet Script Manager，並從 Market 匯入 GitHub 書籤工具。">
+  <title>安裝教學 | Bookmarklet Market</title>
+  <link rel="stylesheet" href="assets/install.css">
+  <link rel="stylesheet" href="assets/tutorial.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="Bookmarklet Market 首頁">
+      <img src="assets/launcher-icon.png" width="44" height="44" alt="">
+      <span class="brand-copy"><span class="brand-eyebrow">BOOKMARKLET</span><span class="brand-name">Market</span></span>
+    </a>
+    <nav class="header-actions" aria-label="網站導覽">
+      <a href="./">瀏覽工具</a>
+    </nav>
+  </header>
+  <main class="guide">
+    <article class="guide-language" lang="zh-TW">
+      <div class="guide-hero">
+        <p class="eyebrow">開始使用</p>
+        <h1>安裝並使用 Market 書籤工具</h1>
+        <p>先從 Chrome 線上應用程式商店安裝 Bookmarklet Script Manager，再從 Market 複製工具的 GitHub 連結，儲存到擴充功能。</p>
+        <div class="guide-actions">
+          <a class="primary-link" href="https://chromewebstore.google.com/detail/bookmarklet-script-manage/eodhedafaheiadegenafmjlkmifojemp" target="_blank" rel="noopener noreferrer">前往 Chrome 線上應用程式商店</a>
+          <a class="secondary-link" href="./#bookmarklets">瀏覽 Market 工具</a>
+        </div>
+        <p class="release-note" role="note"><strong>版本提醒：</strong>GitHub 匯入功能從擴充功能 1.2.1 版開始提供。Chrome 線上應用程式商店的更新仍在審查；進行匯入步驟前，請確認管理頁已有「GitHub」分頁。</p>
+      </div>
+
+      <nav class="guide-contents" aria-label="教學步驟">
+        <a href="#zh-extension"><span>01</span> 安裝擴充功能</a>
+        <a href="#zh-market"><span>02</span> 複製 GitHub 連結</a>
+        <a href="#zh-import"><span>03</span> 匯入工具</a>
+        <a href="#zh-run"><span>04</span> 在網頁執行</a>
+      </nav>
+
+      <div class="guide-steps">
+        <section class="guide-step" id="zh-extension" aria-labelledby="zh-extension-title">
+          <span class="step-number" aria-hidden="true">01</span>
+          <div class="step-body">
+            <p class="step-kicker">Chrome 線上應用程式商店</p>
+            <h2 id="zh-extension-title">安裝擴充功能</h2>
+            <p>開啟 <a href="https://chromewebstore.google.com/detail/bookmarklet-script-manage/eodhedafaheiadegenafmjlkmifojemp" target="_blank" rel="noopener noreferrer">Bookmarklet Script Manager 商店頁面</a>，點選「加到 Chrome」並確認瀏覽器提示。安裝後，從工具列開啟擴充功能；若看不到圖示，可從 Chrome 的擴充功能選單尋找。</p>
+            <p class="step-hint">本教學的 GitHub 分頁需要 1.2.1 或更新版本。</p>
+          </div>
+        </section>
+
+        <section class="guide-step" id="zh-market" aria-labelledby="zh-market-title">
+          <span class="step-number" aria-hidden="true">02</span>
+          <div class="step-body">
+            <p class="step-kicker">Bookmarklet Market</p>
+            <h2 id="zh-market-title">複製工具的 GitHub 連結</h2>
+            <p>在 <a href="./#bookmarklets">Market 工具清單</a>選擇工具，查看說明與適用網站，再按卡片上的「複製 GitHub 連結」。執行前可開啟該 GitHub 連結，檢視原始碼。</p>
+            <div class="ui-path" aria-label="Market 操作路徑">Market <span aria-hidden="true">→</span> 工具卡片 <span aria-hidden="true">→</span> 複製 GitHub 連結</div>
+            <p class="step-hint">請使用複製到的、以 <code>.js</code> 結尾的 GitHub 檔案連結；不要貼到「指令碼內容」欄位。</p>
+          </div>
+        </section>
+
+        <section class="guide-step" id="zh-import" aria-labelledby="zh-import-title">
+          <span class="step-number" aria-hidden="true">03</span>
+          <div class="step-body">
+            <p class="step-kicker">Script Manager</p>
+            <h2 id="zh-import-title">匯入 GitHub 工具</h2>
+            <p>開啟擴充功能，點選「管理指令碼」。在「新增指令碼」區塊切換到「GitHub」分頁，把連結貼進「GitHub JavaScript 檔案網址」，再按「儲存」。工具會出現在「已儲存的指令碼」清單中。</p>
+            <div class="ui-path" aria-label="擴充功能操作路徑">管理指令碼 <span aria-hidden="true">→</span> 新增指令碼 <span aria-hidden="true">→</span> GitHub <span aria-hidden="true">→</span> 儲存</div>
+            <p class="step-hint">儲存時會下載一份本機副本；GitHub 檔案日後更新，不會自動更新已儲存的工具。</p>
+          </div>
+        </section>
+
+        <section class="guide-step" id="zh-run" aria-labelledby="zh-run-title">
+          <span class="step-number" aria-hidden="true">04</span>
+          <div class="step-body">
+            <p class="step-kicker">適用網站</p>
+            <h2 id="zh-run-title">在目前網頁執行</h2>
+            <p>前往工具卡片標示的適用網站，開啟擴充功能，點選已儲存的工具名稱。每次點選都只會在目前分頁執行一次。</p>
+            <p class="step-hint">執行前請先檢視腳本。自訂腳本可以讀取或修改它執行所在的網頁內容。</p>
+          </div>
+        </section>
+      </div>
+
+      <section class="guide-help" aria-labelledby="zh-help-title">
+        <p class="eyebrow">遇到問題？</p>
+        <h2 id="zh-help-title">常見狀況</h2>
+        <details>
+          <summary>找不到 GitHub 分頁</summary>
+          <p>請確認已安裝 1.2.1 或更新版本。商店更新仍在審查，商店目前提供的版本可能尚未包含此功能。</p>
+        </details>
+        <details>
+          <summary>GitHub 連結無法儲存</summary>
+          <p>請使用公開的 <code>https://github.com/.../blob/.../*.js</code> 檔案連結。儲存庫首頁、<code>raw.githubusercontent.com</code> 連結或私人檔案都無法匯入。也請檢查網路連線後重試。</p>
+        </details>
+        <details>
+          <summary>已儲存的工具無法執行</summary>
+          <p>先確認目前網頁是工具的適用網站。若網站封鎖擴充功能的備用執行方式，請開啟 <code>chrome://extensions</code>，找到 Bookmarklet Script Manager →「詳細資料」，啟用「允許使用者指令碼」。若擴充功能仍顯示未啟用，請重新載入擴充功能或重新啟動 Chrome。Chrome 內部頁面等受限制的網頁無法執行腳本。</p>
+        </details>
+      </section>
+    </article>
+  </main>
+  <footer class="site-footer">
+    <p>執行前請先檢視腳本。</p>
+    <div class="footer-links">
+      <a href="./">返回 Market</a>
+      <a href="privacy.html">隱私權政策</a>
+    </div>
+  </footer>
+</body>
+</html>

@@ -19,6 +19,7 @@
       heroDescription: 'Browse the collection and copy a GitHub link to review or share each script.',
       browse: 'Browse bookmarklets',
       installExtension: 'Install Bookmarklet Manager',
+      installGuide: 'Installation guide (繁中)',
       securityTitle: 'Security:',
       securityText: 'Review a script before running it.',
       catalogEyebrow: 'Available tools',
@@ -53,6 +54,7 @@
       heroDescription: '瀏覽工具清單，複製 GitHub 連結來查看或分享腳本。',
       browse: '瀏覽書籤工具',
       installExtension: '安裝 Bookmarklet Manager',
+      installGuide: '安裝教學',
       securityTitle: '安全提醒：',
       securityText: '執行腳本前，請先檢視內容。',
       catalogEyebrow: '可用工具',
@@ -125,6 +127,7 @@
       nodes.name.textContent = localized(record.name);
       nodes.description.textContent = localized(record.description);
       nodes.copy.textContent = t('copyGithubLink');
+      nodes.guide.textContent = t('installGuide');
       nodes.worksOn.textContent = t('worksOn');
       nodes.version.textContent = [
         record.version ? `${t('version')} ${record.version}` : '',
@@ -219,6 +222,7 @@
       version: card.querySelector('[data-role="version"]'),
       matches: card.querySelector('[data-role="matches"]'),
       copy: card.querySelector('[data-role="copy-github-link"]'),
+      guide: card.querySelector('.card-help-link'),
       message: card.querySelector('[data-role="message"]'),
       worksOn: card.querySelector('[data-i18n-dynamic="worksOn"]'),
       screenshots: card.querySelector('[data-role="screenshots"]')

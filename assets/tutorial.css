@@ -1,0 +1,101 @@
+.guide { max-width: 900px; padding-bottom: 78px; }
+.guide-hero { padding: 48px 0 34px; }
+.guide-hero h1 {
+  margin: 9px 0 16px;
+  font-size: clamp(34px, 5vw, 54px);
+  line-height: 1.1;
+  letter-spacing: -.05em;
+}
+.guide-hero > p:not(.eyebrow, .release-note) { max-width: 690px; margin: 0; color: var(--muted); font-size: 16px; line-height: 1.7; }
+.guide-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 25px; }
+.release-note {
+  max-width: 760px;
+  margin: 26px 0 0;
+  padding: 13px 16px;
+  border: 1px solid #e9cc82;
+  border-radius: 10px;
+  background: #fff9e9;
+  color: #604818;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.guide-contents {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 9px;
+  margin: 15px 0 30px;
+}
+.guide-contents a {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 56px;
+  padding: 11px 13px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  font-weight: 700;
+  font-size: 12px;
+  text-decoration: none;
+  transition: border-color .18s ease, background .18s ease;
+}
+.guide-contents a:hover { border-color: #ba9df4; background: var(--surface-soft); }
+.guide-contents span { color: var(--primary); font-size: 12px; font-weight: 800; }
+.guide-steps { display: grid; gap: 16px; }
+.guide-step {
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr);
+  gap: 20px;
+  scroll-margin-top: 20px;
+  padding: 27px;
+  border: 1px solid var(--border);
+  border-radius: 17px;
+  background: var(--surface);
+}
+.step-number {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--surface-soft);
+  color: var(--primary);
+  font-weight: 800;
+}
+.step-kicker { margin: 0 0 2px; color: var(--primary); font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.step-body h2 { margin: 0 0 12px; font-size: clamp(19px, 3vw, 23px); letter-spacing: -.03em; }
+.step-body > p:not(.step-kicker) { max-width: 730px; margin: 0; color: var(--muted); font-size: 14px; line-height: 1.8; }
+.step-body a, .guide-help a { color: var(--primary-dark); font-weight: 750; }
+.step-body strong { color: var(--text); }
+.step-body .step-hint { margin-top: 14px !important; padding-left: 12px; border-left: 3px solid #cfbef8; font-size: 12px !important; }
+.ui-path {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  width: fit-content;
+  max-width: 100%;
+  margin-top: 17px;
+  padding: 10px 13px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fdfcff;
+  color: var(--primary-dark);
+  font-size: 12px;
+  font-weight: 750;
+}
+.ui-path span { color: var(--muted); }
+.guide code { overflow-wrap: anywhere; padding: 1px 4px; border-radius: 4px; background: var(--surface-soft); color: var(--primary-dark); font-size: .92em; }
+.guide-help { margin-top: 36px; padding: 27px; border: 1px solid var(--border); border-radius: 17px; background: var(--surface); }
+.guide-help h2 { margin: 4px 0 18px; font-size: 25px; letter-spacing: -.03em; }
+.guide-help details { border-top: 1px solid var(--border); }
+.guide-help summary { padding: 17px 0; cursor: pointer; font-weight: 750; }
+.guide-help details p { margin: 0 0 18px; color: var(--muted); font-size: 13px; line-height: 1.75; }
+@media (max-width: 760px) { .guide-contents { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) {
+  .guide-hero { padding-top: 30px; }
+  .guide-actions > a { width: 100%; }
+  .guide-contents { grid-template-columns: 1fr 1fr; }
+  .guide-step { grid-template-columns: 1fr; gap: 14px; padding: 21px; }
+  .guide-help { padding: 21px; }
+}

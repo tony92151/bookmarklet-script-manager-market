@@ -204,6 +204,8 @@ button:focus-visible, a:focus-visible, textarea:focus-visible {
   font: 11px/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 .card-copy-button { width: 100%; margin-top: 4px; }
+.card-help-link { display: inline-block; margin-top: 12px; color: var(--primary-dark); font-size: 12px; font-weight: 750; text-decoration: underline; text-underline-offset: 2px; }
+.card-help-link:hover { color: var(--primary); }
 .card-message { min-height: 1.5em; margin: 14px 0 0; font-size: 12px; }
 .card-message.is-success { color: var(--success); }
 .card-message.is-error { color: var(--danger); }
