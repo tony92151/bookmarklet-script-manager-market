@@ -16,6 +16,42 @@
       ],
       "version": "1.0.0",
       "updated": "2026-08-06"
+    },
+    {
+      "id": "staymiles-rate-helper-zh",
+      "name": {
+        "en": "StayMiles Hotel Mileage Rate Helper",
+        "zh-TW": "華航 StayMiles 飯店哩程比值工具"
+      },
+      "description": {
+        "en": "Shows the room price per mile for TWD, or miles per US dollar for USD, beside hotel prices with a calculation tooltip.",
+        "zh-TW": "在飯店價格旁顯示台幣每哩成本或美元每元可得哩程，滑鼠停留可查看計算明細。"
+      },
+      "source": "bookmarklets/staymiles-rate-helper-zh.js",
+      "matches": [
+        "https://www.staymiles.china-airlines.com/search",
+        "https://www.staymiles.china-airlines.com/hotel*"
+      ],
+      "version": "1.0.0",
+      "updated": "2026-09-28"
+    },
+    {
+      "id": "eva-mileage-hotel-helper-zh",
+      "name": {
+        "en": "EVA Mileage Hotel Rate Helper",
+        "zh-TW": "長榮哩程飯店比值工具"
+      },
+      "description": {
+        "en": "Shows the room price per mile for TWD, or miles per US dollar for USD, beside hotel prices with a calculation tooltip.",
+        "zh-TW": "在飯店價格旁顯示台幣每哩成本或美元每元可得哩程，滑鼠停留可查看計算明細。"
+      },
+      "source": "bookmarklets/eva-mileage-hotel-healper-zh.js",
+      "matches": [
+        "https://hotel.brmile.com/search",
+        "https://hotel.brmile.com/details"
+      ],
+      "version": "1.0.0",
+      "updated": "2026-09-28"
     }
   ]
 }
