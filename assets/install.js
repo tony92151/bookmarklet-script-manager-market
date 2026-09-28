@@ -40,7 +40,9 @@
       copied: 'GitHub link copied.',
       copyFailed: 'Clipboard access was unavailable. Copy the link from the dialog.',
       version: 'Version',
-      updated: 'Updated'
+      updated: 'Updated',
+      before: 'Before',
+      after: 'After'
     },
     'zh-TW': {
       documentTitle: 'Bookmarklet Market — 瀏覽書籤工具',
@@ -72,7 +74,9 @@
       copied: '已複製 GitHub 連結。',
       copyFailed: '無法使用剪貼簿，請在視窗中手動複製連結。',
       version: '版本',
-      updated: '更新日期'
+      updated: '更新日期',
+      before: '使用前',
+      after: '使用後'
     }
   };
 
@@ -126,6 +130,12 @@
         record.version ? `${t('version')} ${record.version}` : '',
         record.updated ? `${t('updated')} ${record.updated}` : ''
       ].filter(Boolean).join(' · ');
+      nodes.screenshots.querySelectorAll('[data-stage]').forEach((figure) => {
+        const stage = figure.dataset.stage;
+        figure.querySelector('figcaption').textContent = t(stage);
+        figure.querySelector('img').alt = localized(record.screenshots[stage].alt);
+        figure.querySelector('a').setAttribute('aria-label', `${localized(record.name)} — ${t(stage)}`);
+      });
     });
   };
 
@@ -160,6 +170,18 @@
     record.name && typeof record.name === 'object' &&
     record.description && typeof record.description === 'object' &&
     isSafeSourcePath(record.source) &&
+    (!record.screenshots || ['before', 'after'].every((stage) => {
+      const screenshot = record.screenshots[stage];
+      if (!screenshot || typeof screenshot.src !== 'string' || !screenshot.alt || typeof screenshot.alt !== 'object') return false;
+      try {
+        const root = new URL('bookmarklets_screenshot/', location.href);
+        const resolved = new URL(screenshot.src, location.href);
+        return resolved.origin === root.origin && resolved.href.startsWith(root.href) &&
+          /\.(?:png|jpe?g|webp)$/i.test(resolved.pathname) && !resolved.search && !resolved.hash;
+      } catch {
+        return false;
+      }
+    })) &&
     Array.isArray(record.matches) && record.matches.every((match) => typeof match === 'string')
   );
 
@@ -198,8 +220,30 @@
       matches: card.querySelector('[data-role="matches"]'),
       copy: card.querySelector('[data-role="copy-github-link"]'),
       message: card.querySelector('[data-role="message"]'),
-      worksOn: card.querySelector('[data-i18n-dynamic="worksOn"]')
+      worksOn: card.querySelector('[data-i18n-dynamic="worksOn"]'),
+      screenshots: card.querySelector('[data-role="screenshots"]')
     };
+
+    if (record.screenshots) {
+      nodes.screenshots.hidden = false;
+      for (const stage of ['before', 'after']) {
+        const figure = document.createElement('figure');
+        figure.className = 'screenshot-item';
+        figure.dataset.stage = stage;
+        const caption = document.createElement('figcaption');
+        const link = document.createElement('a');
+        link.href = record.screenshots[stage].src;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        const image = document.createElement('img');
+        image.src = record.screenshots[stage].src;
+        image.loading = 'lazy';
+        image.decoding = 'async';
+        link.appendChild(image);
+        figure.append(caption, link);
+        nodes.screenshots.appendChild(figure);
+      }
+    }
 
     record.matches.forEach((match) => {
       const pattern = document.createElement('code');
