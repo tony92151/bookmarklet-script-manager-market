@@ -42,7 +42,7 @@ scenes.splice(2,0,`<div class="scene market launcher-backdrop">${brand}<h2>探�
 const marketBrand='<div class="marketnav"><img src="assets/tutorial/launcher-icon.png" alt=""><div><small style="display:block;font-size:8px;letter-spacing:.16em">BOOKMARKLET</small><strong style="font-size:17px;color:#29243b">Market</strong></div></div>';
 scenes[1]=scenes[1].replace(brand,marketBrand);
 scenes[2]=scenes[2].replace(brand,marketBrand);
-const hotelPage='<div class="hotel-scene"><div class="hotel-canvas" id="hotel-canvas"><img class="hotel-reference" src="assets/tutorial/staymiles-page-v2.png" alt="華航 StayMiles 飯店搜尋頁面操作示意"><span class="mileage-tag first">3.39元/哩</span><span class="mileage-tag second">3.39元/哩</span></div></div>';
+const hotelPage='<div class="hotel-scene"><div class="hotel-canvas" id="hotel-canvas"><img class="hotel-reference" src="assets/tutorial/staymiles-page-v2.webp" alt="華航 StayMiles 飯店搜尋頁面操作示意"><span class="mileage-tag first">3.39元/哩</span><span class="mileage-tag second">3.39元/哩</span></div></div>';
 scenes.push(hotelPage+`<div class="launcher-popup" id="run-popup"><div class="launcher-heading"><img src="assets/tutorial/launcher-icon.png" alt=""><div><small>BOOKMARKLET</small><b>Script Manager</b></div></div><div class="launcher-content"><strong>已儲存的指令碼</strong><div class="run-list" id="run-script">staymiles-rate-helper-zh<small>按一下即可在目前分頁執行</small></div></div><div class="manage-entry"><span>管理指令碼</span><span>→</span></div></div>`);
 const labels=['前往商店，點選「加到 Chrome」。','在 BOOKMARKLET Market 的工具卡片，點選「複製 GitHub 連結」。','點選 Chrome 工具列上的 Bookmarklet Script Manager 圖示。','在「新增指令碼」區塊，切換到 GitHub 分頁。','前往華航 StayMiles 飯店搜尋或飯店頁，再開啟擴充功能。'];
 function stop(){timers.forEach(clearTimeout);timers=[];playing=false;play.textContent='播放全部步驟';}
