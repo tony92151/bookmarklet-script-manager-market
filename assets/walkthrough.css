@@ -1,0 +1,10 @@
+/* Page framing shares the Market shell; illustration styles remain local. */
+.walkthrough-page { background: var(--bg); color: var(--text); }
+.walkthrough-page .site-header { margin-bottom: 0; }
+.walkthrough-page main { max-width: 1120px; padding: 32px 0 48px; }
+.walkthrough-page .intro { color: var(--muted); }
+.walkthrough-page .controls { flex-wrap: wrap; }
+.walkthrough-page .layout > * { min-width: 0; }
+@media (max-width: 600px) {
+  .walkthrough-page main { padding-top: 22px; }
+}
