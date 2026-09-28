@@ -19,7 +19,7 @@
       heroDescription: 'Browse the collection and copy a GitHub link to review or share each script.',
       browse: 'Browse bookmarklets',
       installExtension: 'Install Bookmarklet Manager',
-      installGuide: 'Installation guide (繁中)',
+      installGuide: 'Installation guide',
       securityTitle: 'Security:',
       securityText: 'Review a script before running it.',
       catalogEyebrow: 'Available tools',
@@ -116,6 +116,7 @@
     document.title = t('documentTitle');
     document.querySelectorAll('[data-i18n]').forEach((element) => {
       element.textContent = t(element.dataset.i18n);
+      if (element.dataset.i18n === 'installGuide') element.href = state.language === 'en' ? 'install.en.html' : 'install.html';
     });
     elements.languageButtons.forEach((button) => {
       button.setAttribute('aria-pressed', String(button.dataset.language === state.language));
@@ -128,6 +129,7 @@
       nodes.description.textContent = localized(record.description);
       nodes.copy.textContent = t('copyGithubLink');
       nodes.guide.textContent = t('installGuide');
+      nodes.guide.href = state.language === 'en' ? 'install.en.html' : 'install.html';
       nodes.worksOn.textContent = t('worksOn');
       nodes.version.textContent = [
         record.version ? `${t('version')} ${record.version}` : '',

@@ -24,7 +24,7 @@
 
 ## 安裝與使用
 
-完整步驟請見[安裝教學](install.html)。擴充功能的 GitHub 匯入功能需要 1.2.1 或更新版本；Chrome 線上應用程式商店的更新仍在審查。
+完整步驟請見[安裝教學](install.html)。擴充功能 1.2.1 版已於 Chrome 線上應用程式商店正式發佈。GitHub 匯入功能需要 1.2.1 或更新版本。
 
 1. 安裝 Bookmarklet Script Manager 擴充功能。
 2. 在 Market 工具卡片按「複製 GitHub 連結」。
