@@ -1,65 +1,35 @@
-.converter-page {
-  width: min(920px, calc(100% - 32px));
-  margin: 48px auto 80px;
-}
-
+.converter-page { width: min(920px, calc(100% - 48px)); margin: 30px auto 70px; }
 .converter-card {
-  padding: 30px;
+  padding: 28px;
   border: 1px solid var(--border);
-  border-radius: 22px;
+  border-radius: 17px;
   background: var(--surface);
-  box-shadow: var(--shadow);
 }
-
 .converter-card h1 {
-  margin: 8px 0 10px;
-  font-size: clamp(2rem, 5vw, 3.6rem);
-  line-height: 1.05;
-  letter-spacing: -0.045em;
+  margin: 7px 0 10px;
+  font-size: clamp(30px, 4vw, 44px);
+  line-height: 1.1;
+  letter-spacing: -.055em;
 }
-
-.converter-card .hero-copy {
-  margin: 0;
-}
-
-.converter-card label {
-  display: block;
-  margin: 24px 0 8px;
-  font-weight: 800;
-}
-
+.converter-card .hero-copy { margin: 0; font-size: 14px; }
+.converter-card label { display: block; margin: 24px 0 8px; font-size: 13px; font-weight: 750; }
 .converter-card textarea {
   width: 100%;
+  min-height: 160px;
+  padding: 13px;
   resize: vertical;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 14px;
-  background: #fbfcff;
+  border: 1px solid #d5d0e2;
+  border-radius: 9px;
+  background: #fff;
   color: var(--text);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 0.86rem;
-  line-height: 1.5;
+  font: 12px/1.65 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  transition: border-color .18s ease, box-shadow .18s ease;
 }
-
-.converter-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 14px;
-}
-
+.converter-card textarea:focus { border-color: var(--primary); outline: 0; box-shadow: 0 0 0 3px #e8ddff; }
+.converter-card textarea[readonly] { background: #fdfcff; }
+.converter-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
 @media (max-width: 600px) {
-  .converter-page {
-    width: min(100% - 22px, 920px);
-    margin-top: 24px;
-  }
-
-  .converter-card {
-    padding: 20px;
-    border-radius: 18px;
-  }
-
-  .converter-actions > button {
-    width: 100%;
-  }
+  .converter-page { width: min(100% - 28px, 920px); margin-top: 18px; }
+  .converter-card { padding: 19px; }
+  .converter-actions > button { width: 100%; }
 }
