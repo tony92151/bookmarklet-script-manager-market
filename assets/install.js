@@ -297,7 +297,9 @@
       });
 
       elements.catalogStatus.textContent = validRecords.length ? '' : t('empty');
-      validRecords.forEach(renderCard);
+      validRecords
+        .sort((a, b) => (b.updated || '').localeCompare(a.updated || ''))
+        .forEach(renderCard);
       elements.list.setAttribute('aria-busy', 'false');
     } catch (error) {
       console.error('[Bookmarklet Launcher] Catalog load failed:', error);
