@@ -26,106 +26,99 @@ The site reads `bookmarklets/catalog.json`, fetches each record's `source`, and 
 
 See `bookmarklets/klook-booking-category-label.js` and its record in `bookmarklets/catalog.json` for the repository's existing pattern.
 
-## UI Design Patterns
+## UI Pattern Selection
 
-Treat these patterns as a reusable design library, not a mandatory template. Choose only the patterns that fit the bookmarklet's purpose. A small inline calculator or one-value annotation should stay lightweight; a crawler, tracker, data explorer, or management tool can use the richer modal patterns below.
+Choose UI patterns according to the bookmarklet's function, information density, and interaction model. Patterns are optional and may be combined. Do not force a large modal onto a bookmarklet that only needs a small inline result.
+
+This skill may be loaded directly from a raw GitHub URL, so do not assume that relative file references will be resolved automatically. When a pattern guide is needed, fetch it from the explicit raw URL listed below before implementing that UI.
+
+### Inline Value Badge
+
+Use for:
+
+- reward multipliers
+- points-per-currency or currency-per-point calculations
+- cashback percentages
+- computed values displayed next to an existing price or reward
+- small read-only annotations that do not require user interaction
+
+Keep the result visually close to the source value and match the host page's density where practical. A dedicated pattern guide is not required for this simple case.
+
+### Toast Feedback
+
+Use for:
+
+- copy success
+- completion confirmation
+- short errors
+- one-step actions that need feedback but not a persistent interface
+
+Keep the message brief and non-blocking. A dedicated pattern guide is not required for this simple case.
+
+### Compact Control Panel
+
+Use for:
+
+- bookmarklets with a small number of settings
+- start/stop controls
+- simple automation controls
+- actions that need configuration but do not produce a large dataset
+
+Prefer a small modal or floating panel with only the controls required by the task. Do not introduce data-table patterns unless the bookmarklet actually displays tabular results.
 
 ### Dark Data Modal
 
-Use this pattern for data-heavy tools such as crawlers, transaction/order viewers, analytics tools, and management interfaces.
+Use for:
 
-Suggested design tokens:
+- crawlers and scrapers with many results
+- transaction, order, trip, or reward-history viewers
+- analytics and statistics tools
+- offer or inventory explorers
+- tools with search, sorting, filtering, or status views
+- CSV/JSON export tools
+- management interfaces with persistent datasets
 
-```css
---bml-bg: #17181a;
---bml-bg-elevated: #1e2023;
---bml-bg-hover: #26292d;
---bml-border: #2d3138;
---bml-border-strong: #3a3f47;
---bml-text: #e6e8eb;
---bml-text-muted: #9ca0a5;
---bml-text-dim: #6b7076;
---bml-accent: #61afef;
---bml-positive: #7ec27a;
---bml-attention: #e5c07b;
---bml-negative: #e06c75;
-```
+This is a composite pattern that may include a modal shell, underline tabs, progress banner, stats bar, outline filter chips, dense data table, semantic status badges, floating launcher, and diagnostic footer. Use only the components required by the bookmarklet.
 
-Build the interface as a fixed fullscreen translucent overlay with a centered modal. A good starting point is `width: 92%`, `max-width: 960px`, `max-height: 82vh`, an 8px radius, a subtle border, and a deep shadow. Use an extremely high z-index so the bookmarklet stays above the host page.
+Before implementing this pattern, read the full guide:
 
-Prefer hierarchy through spacing, borders, and small changes in background brightness rather than many unrelated colors. For a full data tool, a useful information hierarchy is:
+`https://raw.githubusercontent.com/tony92151/bookmarklet-script-manager-market/refs/heads/main/ui-patterns/dark-data-modal.md`
 
-`Header → Tabs → Progress/Loading → Stats → Filters → Data Table → Footer`
-
-### Underline Tabs
-
-Use underline tabs for switching between major modes or views. Keep inactive tabs transparent with muted text. Give the active tab normal text and a 2px accent-colored bottom border. Avoid turning major navigation tabs into large filled buttons unless the host task specifically calls for that visual weight.
-
-### Outline Filter Chips
-
-Use compact outlined controls for filtering the current dataset rather than for primary navigation. Keep inactive chips transparent with a subtle border and muted text. For the active filter, use the accent border and only a very subtle tinted background.
-
-Include useful counts when available, for example: `All (821)`, `With Amount (44)`, `Tracked (87)`.
-
-### Dense Data Table
-
-For large datasets:
-
-- Prefer `table-layout: fixed` and explicit column widths, such as a `<colgroup>`, so long values do not constantly reflow the table.
-- Keep the table header sticky while the data region scrolls.
-- Left-align descriptive text, right-align monetary/numeric values, and center short status/date/boolean columns when appropriate.
-- Use `font-variant-numeric: tabular-nums` for columns containing numbers.
-- Use subtle zebra striping and a restrained row hover state.
-- Avoid excessive vertical borders; spacing and horizontal separators are usually enough.
-- Let the table body/container scroll while important controls such as the header, tabs, stats, filters, and footer remain stable when practical.
-
-### Semantic Outline Status
-
-For statuses, prefer restrained outlined badges over high-saturation filled pills. Use a transparent background, semantic text color, and a subtle border derived from the same color.
-
-Suggested semantics:
-
-- Completed / success: green (`--bml-positive`)
-- Pending / waiting / attention: amber (`--bml-attention`)
-- Active / adjusted / informational: blue (`--bml-accent`)
-- Canceled / error: red (`--bml-negative`)
-
-Do not use semantic colors decoratively; reserve them for information that benefits from the meaning.
+Repository path: `ui-patterns/dark-data-modal.md`
 
 ### Floating Launcher
 
-For bookmarklets that users may reopen while staying on the page, consider a small floating action button in the lower-right corner. A useful baseline is 44×44px, 20px from the bottom/right, with a dark background, subtle border, high z-index, and an optional count badge.
+Use for:
 
-Make repeated execution idempotent: if the bookmarklet UI already exists, reopen or focus it instead of injecting a duplicate interface.
+- bookmarklet UI that users may reopen repeatedly
+- tools that remain active while the user continues using the page
+- background collection or monitoring interfaces
+- data tools whose modal can be closed without ending the bookmarklet session
 
-### Host-Safe Bookmarklet CSS
+For data-heavy interfaces, follow the Floating Launcher section in the Dark Data Modal guide above. For simple tools, keep the launcher minimal and make repeated bookmarklet execution idempotent.
 
-Bookmarklet UI runs inside an unknown host page, so isolation is part of the design:
+### Choosing and Combining Patterns
 
-1. Give every injected ID and class a bookmarklet-specific prefix such as `#bml-overlay`, `#bml-modal`, `.bml-tab`, and `.bml-status`. For larger tools, use an even more specific prefix to reduce collisions.
-2. Scope design tokens to the bookmarklet's root elements rather than `:root`.
-3. Avoid generic selectors such as `.button`, `.modal`, `.table`, or `.active` on their own.
-4. Using `!important` is acceptable for injected bookmarklet UI when needed to defend against host-page styles; keep it scoped to bookmarklet selectors.
-5. Use a sufficiently high z-index for overlays and floating launchers.
-6. Do not reset or modify global host-page styles unless the task explicitly requires changing the page itself.
-7. Remove injected elements, listeners, timers, and observers when the UI has a true teardown action.
+Start with the smallest UI that satisfies the task:
 
-### Pattern Selection
+- Inline calculation or annotation → Inline Value Badge
+- One-step action with a result → Toast Feedback
+- Small configurable action → Compact Control Panel
+- Large dataset or analysis workflow → Dark Data Modal
+- Persistent/reopenable interface → add Floating Launcher
 
-Do not apply every pattern to every bookmarklet. Start from the task's information density and interaction model:
+Patterns can be combined when their responsibilities are distinct. For example, a hotel crawler may use `Dark Data Modal + Floating Launcher`, while a reward calculator may need only an `Inline Value Badge`.
 
-- Inline calculation or annotation: prefer a small badge/label near the source data.
-- Simple one-step action: prefer lightweight feedback such as a toast or compact panel.
-- Configurable action: use a small modal or popover with only the necessary controls.
-- Data crawler, tracker, explorer, or manager: consider the full Dark Data Modal with stats, filters, and a dense table.
+When the user provides a screenshot or an implementation they like, identify the reusable visual and interaction patterns rather than blindly copying the source. Preserve the preferred design language while adapting it to the bookmarklet's actual function.
 
-When the user provides a UI screenshot or an existing implementation they like, identify the reusable visual and interaction patterns rather than blindly copying the source. Preserve the user's preferred design language while adapting it to the new bookmarklet's actual function.
+If additional UI pattern guides are added later, list each one in this section with: its purpose, when to use it, when not to use it, compatible patterns, and an explicit raw GitHub URL. This keeps the main skill usable when it is shared as a single raw `skill.md` URL.
 
 ## Workflow
 
 1. Clarify the target site, desired action, and output when the request does not specify them.
 2. Inspect a public target page when possible. For a login-only page, work from HTML supplied by the user or explain that selectors need testing on the live page.
-3. Write the script at `bookmarklets/<kebab-case-name>.js`.
-4. Add a record to `bookmarklets/catalog.json` with a unique `id`, English and Traditional Chinese `name` and `description`, a `source` of `bookmarklets/<kebab-case-name>.js`, `matches`, `version`, and `updated`.
-5. Verify the script's syntax, catalog JSON, and relevant behavior. Run `node --experimental-default-type=module --test` for the site tests.
-6. Tell the user to open the Bookmarklet Launcher site, install the new item from the catalog, visit a matching page, and click the bookmark. Explain the expected result and what to report if it fails.
+3. Choose the smallest appropriate UI pattern from `UI Pattern Selection`. If the selected pattern points to an external guide, fetch and read that guide before implementing the UI.
+4. Write the script at `bookmarklets/<kebab-case-name>.js`.
+5. Add a record to `bookmarklets/catalog.json` with a unique `id`, English and Traditional Chinese `name` and `description`, a `source` of `bookmarklets/<kebab-case-name>.js`, `matches`, `version`, and `updated`.
+6. Verify the script's syntax, catalog JSON, and relevant behavior. Run `node --experimental-default-type=module --test` for the site tests.
+7. Tell the user to open the Bookmarklet Launcher site, install the new item from the catalog, visit a matching page, and click the bookmark. Explain the expected result and what to report if it fails.
