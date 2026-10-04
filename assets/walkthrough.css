@@ -1,4 +1,4 @@
-/* Page framing shares the Market shell; illustration styles remain local. */
+/* Page framing shares the Market shell; illustrations use tutorial-scenes.css. */
 .walkthrough-page { background: var(--bg); color: var(--text); }
 .walkthrough-page .site-header { margin-bottom: 0; }
 .walkthrough-page main { max-width: 1120px; padding: 32px 0 48px; }

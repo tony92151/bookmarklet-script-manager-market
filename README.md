@@ -2,7 +2,7 @@
 
 [English](README.md) · [繁體中文](README.zh-TW.md)
 
-This repository contains the **Bookmarklet Launcher** website: a catalog of small JavaScript tools that you can save to your browser's bookmarks bar. Clicking a saved bookmark runs its script on the page you are viewing. The website is static; it serves the catalog and script files without a backend or an extension.
+This repository contains the **Bookmarklet Launcher Market** website: a catalog of small JavaScript tools that you can import into Bookmarklet Script Manager and run on supported pages. The static website serves the catalog, script files, and animated installation tutorial without a backend. The Market and tutorial support English, Traditional Chinese, Brazilian Portuguese, Spanish, and Japanese.
 
 The separate [Bookmarklet Script Manager browser extension](https://chromewebstore.google.com/detail/bookmarklet-script-manage/eodhedafaheiadegenafmjlkmifojemp) is available on the Chrome Web Store. This repository hosts its [privacy policy](privacy.html), but does not contain the extension source.
 
@@ -12,24 +12,41 @@ Open the website: [Bookmarklet Launcher on GitHub Pages](https://tony92151.githu
 
 | Path | Purpose |
 | --- | --- |
-| [`index.html`](index.html) and [`assets/install.js`](assets/install.js) | Bilingual catalog page that loads scripts and provides install and copy controls. |
+| [`index.html`](index.html) and [`assets/install.js`](assets/install.js) | Five-language Market with tool descriptions, previews, and GitHub links for import. |
+| [`assets/locales/index.js`](assets/locales/index.js) and [`assets/language.js`](assets/language.js) | Locale registry, runtime dictionaries, and shared language preference handling. |
+| [`install.html`](install.html) and [`install.en.html`](install.en.html) | Installation tutorial entry points using shared JavaScript and tutorial locale dictionaries. |
 | [`bookmarklets/catalog.json`](bookmarklets/catalog.json) | Metadata, source paths, and intended URL patterns for the listed tools. |
 | [`bookmarklets/`](bookmarklets/) | JavaScript source for each bookmarklet. |
 | [`shared/bookmarklet.js`](shared/bookmarklet.js) | Encoding and decoding of `javascript:` bookmark URLs. |
 | [`converter/`](converter/) | Browser-based encoder and decoder for bookmarklet URLs. |
 | [`privacy.html`](privacy.html) | Privacy policy for the separate browser extension. |
 
-The catalog currently has one tool: [Klook Booking Category Labels](bookmarklets/klook-booking-category-label.js). On a supported Klook bookings page, it reads category icon filenames and adds category labels beside booking titles, including bookings loaded later by the page.
+The catalog currently has three tools:
+
+- [Klook Booking Category Labels](bookmarklets/klook-booking-category-label.js) reads category icon filenames and adds category labels beside booking titles, including bookings loaded later by the page.
+- [StayMiles Hotel Mileage Rate Helper](bookmarklets/staymiles-rate-helper-zh.js) shows TWD cost per mile or miles per USD beside StayMiles hotel prices.
+- [EVA Mileage Hotel Rate Helper](bookmarklets/eva-mileage-hotel-healper-zh.js) provides the same mileage comparison for EVA hotel prices.
 
 ## Install and use a tool
 
-See the [animated installation guide](install.en.html). Version 1.2.1 is now available in the Chrome Web Store; GitHub import requires version 1.2.1 or later.
+See the [animated installation guide](install.en.html). GitHub import requires Bookmarklet Script Manager version **1.2.1 or later**.
 
-1. Open the website and review a tool's description, intended URL pattern, and source code.
-2. Drag **Install** to your bookmarks bar, or right-click it and save the link as a bookmark. **Copy code** lets you paste the full `javascript:` URL into a bookmark manually.
-3. Visit a supported page and click the saved bookmark.
+1. Install the Bookmarklet Script Manager extension.
+2. Open the Market, review a tool's description, intended URL pattern, and source code, then select **Copy GitHub link**.
+3. Open the extension's **Manage Scripts** screen, paste the link into the **GitHub** tab, and save it.
+4. Visit a supported page and run the saved tool from the extension.
 
-Bookmarklets execute in the current page and can interact with its content. Review a script before installing it. The URL patterns in the catalog describe where a tool is intended to work; they do not restrict where a browser lets you click the bookmark.
+The scripts execute in the current page and can interact with its content. Review a script before importing it. The URL patterns in the catalog describe where a tool is intended to work.
+
+## Website languages
+
+Use the language selector or share a URL such as [`?lang=pt-BR`](https://tony92151.github.io/bookmarklet-script-manager-market/?lang=pt-BR), [`?lang=es`](https://tony92151.github.io/bookmarklet-script-manager-market/?lang=es), or [`?lang=ja`](https://tony92151.github.io/bookmarklet-script-manager-market/?lang=ja). The tutorial accepts the same parameter, for example [`install.html?lang=ja`](install.html?lang=ja).
+
+Language selection follows this priority: a supported URL `lang` value, the saved `bookmarklet-launcher-language` preference, the browser's `navigator.languages`, then English. The legacy tutorial filenames provide a fallback after browser preferences and before the final English default. The website preference is independent of the extension's language storage.
+
+Market strings live in the runtime dictionaries under `assets/locales/`, registered in `assets/locales/index.js`; `assets/language.js` handles shared language selection. The tutorial uses shared JavaScript and separate dictionaries in `assets/tutorial-locales.js`. Catalog names, descriptions, and screenshot alternative text are translated in `bookmarklets/catalog.json`.
+
+Website translations do not automatically translate the tools' own interfaces, screenshot pixels, or the extension. The privacy policy and converter body retain their existing language coverage. Adding website languages does not imply that a new extension release or those languages are available in the Chrome Web Store.
 
 ## Run locally
 
@@ -50,10 +67,10 @@ node --experimental-default-type=module --test
 ## Add a bookmarklet
 
 1. Add a raw JavaScript file to `bookmarklets/`. Do not include a `javascript:` prefix or pre-encode it. An IIFE keeps variables out of the page's global scope.
-2. Add an entry to [`catalog.json`](bookmarklets/catalog.json) with a unique `id`, English and Traditional Chinese `name` and `description`, a `source` under `bookmarklets/`, intended URL patterns in `matches`, `version`, and `updated`.
-3. Run the tests and try the installed bookmark on the target page.
+2. Add an entry to [`catalog.json`](bookmarklets/catalog.json) with a unique `id`, `name` and `description` in all five locales (`en`, `zh-TW`, `pt-BR`, `es`, `ja`), a `source` under `bookmarklets/`, intended URL patterns in `matches`, `version`, and `updated`. Translate every screenshot's `alt` text into the same five locales when adding previews.
+3. Run the tests, import the tool into the extension, and try it on the target page.
 
-The catalog page fetches each source file and turns it into an installable `javascript:` URL in the browser. See [`skill.md`](skill.md) for the project's bookmarklet authoring guidance.
+The catalog provides a GitHub link for each source file so the extension can import it. See [`skill.md`](skill.md) for the project's bookmarklet authoring guidance.
 
 ## Deployment
 

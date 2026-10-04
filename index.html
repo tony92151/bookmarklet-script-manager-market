@@ -3,26 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Browse useful bookmarklets and copy their GitHub source links.">
+  <meta name="description" data-i18n-content="metaDescription" content="Browse useful bookmarklets and copy their GitHub source links.">
   <title>Bookmarklet Market</title>
   <link rel="icon" type="image/png" href="assets/launcher-icon.png">
   <link rel="stylesheet" href="assets/site.css">
   <link rel="stylesheet" href="assets/install.css">
-  <script type="module" src="assets/install.js?v=guide-en-1"></script>
+  <script type="module" src="assets/install.js?v=locales-1"></script>
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="./" aria-label="Bookmarklet Market home">
+    <a class="brand" href="./" aria-label="Bookmarklet Market home" data-i18n-aria-label="home" data-language-link="./">
       <img src="assets/launcher-icon.png" width="44" height="44" alt="">
       <span class="brand-copy"><span class="brand-eyebrow">BOOKMARKLET</span><span class="brand-name">Market</span></span>
     </a>
 
-    <nav class="header-actions" aria-label="Site navigation">
-      <div class="language-switch" role="group" aria-label="Language">
-        <button type="button" class="language-button" data-language="en" aria-pressed="true">EN</button>
-        <button type="button" class="language-button" data-language="zh-TW" aria-pressed="false">繁中</button>
-      </div>
-      <a href="install.en.html" data-i18n="installGuide">Installation guide</a>
+    <nav class="header-actions" aria-label="Site navigation" data-i18n-aria-label="navigation">
+      <select class="language-select" data-language-select aria-label="Language" data-i18n-aria-label="language"></select>
+      <a href="install.html" data-language-link="install.html" data-i18n="installGuide">Installation guide</a>
       <a href="https://github.com/tony92151/bookmarklet-script-manager-market" target="_blank" rel="noopener noreferrer" data-i18n="github">GitHub</a>
       <a href="https://chromewebstore.google.com/detail/bookmarklet-script-manage/eodhedafaheiadegenafmjlkmifojemp" target="_blank" rel="noopener noreferrer" data-i18n="extension">Extension</a>
     </nav>
@@ -62,7 +59,7 @@
   <footer class="site-footer">
     <p data-i18n="footerText">Review a script and its intended websites before running it.</p>
     <div class="footer-links">
-      <a href="privacy.html">Privacy Policy / 隱私權政策</a>
+      <a href="privacy.html" data-language-link="privacy.html" data-i18n="privacy">Privacy Policy / 隱私權政策</a>
       <a href="https://github.com/tony92151/bookmarklet-script-manager-market" target="_blank" rel="noopener noreferrer" data-i18n="source">Source</a>
       <a href="https://github.com/tony92151/bookmarklet-launcher/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" data-i18n="license">License</a>
     </div>
@@ -72,10 +69,10 @@
     <form method="dialog">
       <div class="dialog-heading">
         <h2 id="copy-dialog-title" data-i18n="manualCopyTitle">Copy GitHub link</h2>
-        <button class="icon-button" value="cancel" aria-label="Close">×</button>
+        <button class="icon-button" value="cancel" aria-label="Close" data-i18n-aria-label="close">×</button>
       </div>
       <p data-i18n="manualCopyDescription">Copy the GitHub link below.</p>
-      <textarea id="copy-textarea" readonly rows="3"></textarea>
+      <textarea id="copy-textarea" aria-label="GitHub source link" data-i18n-aria-label="copyLinkLabel" readonly rows="3"></textarea>
       <div class="dialog-actions">
         <button type="button" id="select-code-button" class="secondary-button" data-i18n="selectAll">Select all</button>
         <button value="cancel" class="primary-button" data-i18n="close">Close</button>
@@ -98,7 +95,7 @@
         <div class="pattern-list" data-role="matches"></div>
       </div>
       <button type="button" class="primary-button card-copy-button" data-role="copy-github-link">Copy GitHub link</button>
-      <a class="card-help-link" href="install.en.html" data-i18n="installGuide">Installation guide</a>
+      <a class="card-help-link" href="install.html" data-language-link="install.html" data-i18n="installGuide">Installation guide</a>
       <p class="card-message" data-role="message" aria-live="polite"></p>
     </article>
   </template>

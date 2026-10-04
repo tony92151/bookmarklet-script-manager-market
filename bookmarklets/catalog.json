@@ -4,11 +4,17 @@
       "id": "klook-booking-category",
       "name": {
         "en": "Klook Booking Category Labels",
-        "zh-TW": "Klook 訂單分類標籤"
+        "zh-TW": "Klook 訂單分類標籤",
+        "pt-BR": "Etiquetas de categoria para reservas do Klook",
+        "es": "Etiquetas de categoría para reservas de Klook",
+        "ja": "Klook 予約カテゴリーラベル"
       },
       "description": {
         "en": "Shows the category extracted from each booking icon beside the booking title.",
-        "zh-TW": "在每筆訂單標題旁顯示從分類圖示解析出的分類。"
+        "zh-TW": "在每筆訂單標題旁顯示從分類圖示解析出的分類。",
+        "pt-BR": "Exibe, ao lado do título de cada reserva, a categoria identificada a partir do ícone da reserva.",
+        "es": "Muestra, junto al título de cada reserva, la categoría identificada a partir de su icono.",
+        "ja": "各予約のアイコンから読み取ったカテゴリーを、予約タイトルの横に表示します。"
       },
       "source": "bookmarklets/klook-booking-category-label.js",
       "matches": [
@@ -21,11 +27,17 @@
       "id": "staymiles-rate-helper-zh",
       "name": {
         "en": "StayMiles Hotel Mileage Rate Helper",
-        "zh-TW": "華航 StayMiles 飯店哩程比值工具"
+        "zh-TW": "華航 StayMiles 飯店哩程比值工具",
+        "pt-BR": "Calculadora de custo por milha para hotéis StayMiles",
+        "es": "Calculadora de coste por milla para hoteles StayMiles",
+        "ja": "チャイナ エアライン StayMiles ホテル料金・マイル比率ツール"
       },
       "description": {
         "en": "Shows the room price per mile for TWD, or miles per US dollar for USD, beside hotel prices with a calculation tooltip.",
-        "zh-TW": "在飯店價格旁顯示台幣每哩成本或美元每元可得哩程，滑鼠停留可查看計算明細。"
+        "zh-TW": "在飯店價格旁顯示台幣每哩成本或美元每元可得哩程，滑鼠停留可查看計算明細。",
+        "pt-BR": "Exibe, ao lado do preço do hotel, o custo por milha em dólares taiwaneses (TWD) ou as milhas por dólar americano (USD). Passe o cursor para ver os detalhes do cálculo.",
+        "es": "Muestra, junto al precio del hotel, el coste por milla en dólares taiwaneses (TWD) o las millas por dólar estadounidense (USD). Pasa el cursor para ver los detalles del cálculo.",
+        "ja": "ホテル料金の横に、台湾ドル（TWD）の場合は1マイルあたりの費用、米ドル（USD）の場合は1ドルあたりの獲得マイル数を表示します。マウスを合わせると計算の詳細を確認できます。"
       },
       "source": "bookmarklets/staymiles-rate-helper-zh.js",
       "screenshots": {
@@ -33,14 +45,20 @@
           "src": "bookmarklets_screenshot/staymiles-rate-helper-zh/before.png",
           "alt": {
             "en": "StayMiles hotel price before the mileage rate is added",
-            "zh-TW": "尚未顯示每哩成本的 StayMiles 飯店價格"
+            "zh-TW": "尚未顯示每哩成本的 StayMiles 飯店價格",
+            "pt-BR": "Preço de hotel no StayMiles antes de exibir o custo por milha",
+            "es": "Precio de hotel en StayMiles antes de mostrar el coste por milla",
+            "ja": "1マイルあたりの費用を表示する前の StayMiles のホテル料金"
           }
         },
         "after": {
           "src": "bookmarklets_screenshot/staymiles-rate-helper-zh/after.png",
           "alt": {
             "en": "StayMiles hotel price with a green 3.39 TWD per mile badge",
-            "zh-TW": "StayMiles 飯店價格旁顯示綠色 3.39 元每哩標籤"
+            "zh-TW": "StayMiles 飯店價格旁顯示綠色 3.39 元每哩標籤",
+            "pt-BR": "Preço de hotel no StayMiles com uma etiqueta verde de 3,39 TWD por milha",
+            "es": "Precio de hotel en StayMiles con una etiqueta verde de 3,39 TWD por milla",
+            "ja": "1マイルあたり3.39台湾ドルの緑色ラベルが付いた StayMiles のホテル料金"
           }
         }
       },
@@ -55,11 +73,17 @@
       "id": "eva-mileage-hotel-helper-zh",
       "name": {
         "en": "EVA Mileage Hotel Rate Helper",
-        "zh-TW": "長榮哩程飯店比值工具"
+        "zh-TW": "長榮哩程飯店比值工具",
+        "pt-BR": "Calculadora de custo por milha para hotéis EVA Air",
+        "es": "Calculadora de coste por milla para hoteles EVA Air",
+        "ja": "エバー航空 ホテル料金・マイル比率ツール"
       },
       "description": {
         "en": "Shows the room price per mile for TWD, or miles per US dollar for USD, beside hotel prices with a calculation tooltip.",
-        "zh-TW": "在飯店價格旁顯示台幣每哩成本或美元每元可得哩程，滑鼠停留可查看計算明細。"
+        "zh-TW": "在飯店價格旁顯示台幣每哩成本或美元每元可得哩程，滑鼠停留可查看計算明細。",
+        "pt-BR": "Exibe, ao lado do preço do hotel, o custo por milha em dólares taiwaneses (TWD) ou as milhas por dólar americano (USD). Passe o cursor para ver os detalhes do cálculo.",
+        "es": "Muestra, junto al precio del hotel, el coste por milla en dólares taiwaneses (TWD) o las millas por dólar estadounidense (USD). Pasa el cursor para ver los detalles del cálculo.",
+        "ja": "ホテル料金の横に、台湾ドル（TWD）の場合は1マイルあたりの費用、米ドル（USD）の場合は1ドルあたりの獲得マイル数を表示します。マウスを合わせると計算の詳細を確認できます。"
       },
       "source": "bookmarklets/eva-mileage-hotel-healper-zh.js",
       "screenshots": {
@@ -67,14 +91,20 @@
           "src": "bookmarklets_screenshot/eva-mileage-hotel-healper-zh/before.png",
           "alt": {
             "en": "EVA hotel price before the mileage rate is added",
-            "zh-TW": "尚未顯示每哩成本的長榮哩程飯店價格"
+            "zh-TW": "尚未顯示每哩成本的長榮哩程飯店價格",
+            "pt-BR": "Preço de hotel no programa de milhas da EVA Air antes de exibir o custo por milha",
+            "es": "Precio de hotel en el programa de millas de EVA Air antes de mostrar el coste por milla",
+            "ja": "1マイルあたりの費用を表示する前のエバー航空のマイル対象ホテル料金"
           }
         },
         "after": {
           "src": "bookmarklets_screenshot/eva-mileage-hotel-healper-zh/after.png",
           "alt": {
             "en": "EVA hotel price with a green 2.07 TWD per mile badge",
-            "zh-TW": "長榮哩程飯店價格旁顯示綠色 2.07 元每哩標籤"
+            "zh-TW": "長榮哩程飯店價格旁顯示綠色 2.07 元每哩標籤",
+            "pt-BR": "Preço de hotel no programa de milhas da EVA Air com uma etiqueta verde de 2,07 TWD por milha",
+            "es": "Precio de hotel en el programa de millas de EVA Air con una etiqueta verde de 2,07 TWD por milla",
+            "ja": "1マイルあたり2.07台湾ドルの緑色ラベルが付いたエバー航空のマイル対象ホテル料金"
           }
         }
       },

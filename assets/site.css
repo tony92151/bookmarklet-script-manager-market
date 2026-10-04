@@ -97,6 +97,19 @@ button:focus-visible, a:focus-visible, textarea:focus-visible {
 
 
 .language-switch a { text-decoration: none; }
+.language-select {
+  min-height: 36px;
+  max-width: 100%;
+  padding: 6px 9px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--surface);
+  color: var(--text);
+  font: 600 12px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  cursor: pointer;
+}
+.language-select:focus-visible { outline: 3px solid #a88cf5; outline-offset: 2px; }
+.language-select:hover { border-color: var(--primary); }
 @media (max-width: 760px) {
   .site-header { align-items: flex-start; flex-direction: column; }
   .header-actions { width: 100%; }
