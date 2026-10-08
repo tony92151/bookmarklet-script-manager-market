@@ -1,4 +1,5 @@
 export default {
+  "skillGuide": "Skill 使用教學",
   "documentTitle": "Bookmarklet Market — 瀏覽書籤工具",
   "github": "GitHub",
   "extension": "擴充功能",

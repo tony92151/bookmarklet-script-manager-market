@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" data-i18n-content="metaDescription" content="Learn how to use the make-bookmarklet Skill with AI: describe your task, provide page evidence, and test your script.">
+  <title>Make your own browser tool — Bookmarklet Market</title>
+  <link rel="icon" type="image/png" href="assets/launcher-icon.png">
+  <link rel="stylesheet" href="assets/site.css">
+  <link rel="stylesheet" href="assets/install.css">
+  <link rel="stylesheet" href="assets/skill.css">
+  <script type="module" src="assets/skill.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="Bookmarklet Market home" data-i18n-aria-label="home" data-language-link="./">
+      <img src="assets/launcher-icon.png" width="44" height="44" alt="">
+      <span class="brand-copy"><span class="brand-eyebrow">BOOKMARKLET</span><span class="brand-name">Market</span></span>
+    </a>
+    <nav class="header-actions" aria-label="Site navigation" data-i18n-aria-label="navigation">
+      <select class="language-select" data-language-select aria-label="Language" data-i18n-aria-label="language"></select>
+      <a href="install.html" data-language-link="install.html" data-i18n="installGuide">Installation guide</a>
+      <a href="skill.html" data-language-link="skill.html" aria-current="page" data-i18n="skillGuide">Skill guide</a>
+      <a href="https://github.com/tony92151/bookmarklet-script-manager-market" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </nav>
+  </header>
+
+  <main class="skill-page">
+    <section class="hero" aria-labelledby="page-title">
+      <p class="eyebrow" data-i18n="eyebrow">MAKE BOOKMARKLET · AI GUIDE</p>
+      <h1 id="page-title" data-i18n="heroTitle">Turn a webpage task into your own tool.</h1>
+      <p class="hero-copy" data-i18n="heroDescription">Give your AI assistant the make-bookmarklet Skill and describe what you want to do. It provides guidelines for creating small JavaScript tools that run on the page you are viewing.</p>
+      <div class="hero-actions">
+        <a class="primary-link" href="#get-started" data-i18n="getStarted">Start with a prompt</a>
+        <a class="secondary-link" href="https://github.com/tony92151/bookmarklet-script-manager-market/blob/main/skill.md" target="_blank" rel="noopener noreferrer" data-i18n="readSkill">Read the Skill</a>
+      </div>
+    </section>
+
+    <section class="skill-ideas" aria-labelledby="ideas-title">
+      <h2 id="ideas-title" data-i18n="ideasTitle">Start with something you do often</h2>
+      <div class="idea-grid">
+        <article><span class="idea-symbol" aria-hidden="true">÷</span><h3 data-i18n="idea1Title">Compare rewards</h3><p data-i18n="idea1">Show the cost per mile beside each hotel price.</p></article>
+        <article><span class="idea-symbol" aria-hidden="true">≡</span><h3 data-i18n="idea2Title">Organize orders</h3><p data-i18n="idea2">Add category labels beside orders to make them easier to scan.</p></article>
+        <article><span class="idea-symbol" aria-hidden="true">↓</span><h3 data-i18n="idea3Title">Export page data</h3><p data-i18n="idea3">Collect the visible table rows into a CSV file.</p></article>
+      </div>
+    </section>
+
+    <section class="guide-step" id="get-started" aria-labelledby="step1-title">
+      <span class="step-number" aria-hidden="true">01</span>
+      <div class="step-content">
+        <h2 id="step1-title" data-i18n="step1Title">Share the Skill with your AI assistant</h2>
+        <p data-i18n="step1">Copy this prompt into a conversation with an AI assistant that can help write JavaScript. Replace the bracketed fields with your own details before sending.</p>
+        <div class="prompt-box">
+          <label for="starter-prompt" data-i18n="promptLabel">Starter prompt</label>
+          <textarea id="starter-prompt" rows="13" readonly spellcheck="false"></textarea>
+          <button type="button" class="primary-button" data-copy-prompt="starter-prompt" data-i18n="copyPrompt">Copy prompt</button>
+          <p class="copy-status" data-copy-status="starter-prompt" role="status"></p>
+        </div>
+        <p class="guide-note" data-i18n="fallback">If the assistant cannot open the link, open “Read the Skill” and paste the full document into the conversation. Sharing a link does not automatically install a Skill in your AI tool.</p>
+        <a class="raw-link" href="https://raw.githubusercontent.com/tony92151/bookmarklet-script-manager-market/refs/heads/main/skill.md" target="_blank" rel="noopener noreferrer" data-i18n="rawLabel">Skill source (raw Markdown)</a>
+      </div>
+    </section>
+
+    <section class="guide-step" aria-labelledby="step2-title">
+      <span class="step-number" aria-hidden="true">02</span>
+      <div class="step-content">
+        <h2 id="step2-title" data-i18n="step2Title">Show what the page looks like</h2>
+        <p data-i18n="step2">Be specific about the page and result. For login-only or dynamic pages, provide the relevant screenshot, copied element HTML, or sample response so the assistant can use real page evidence.</p>
+        <div class="example-box"><h3 data-i18n="exampleLabel">Example request</h3><p data-i18n="example">On this hotel results page, show “price ÷ miles” beside each hotel. Use the currency shown on the page, round to two decimal places, and skip entries with zero miles. Here is the HTML of one hotel card: [paste HTML].</p></div>
+        <p class="guide-note" data-i18n="evidenceNote">Remove passwords, tokens, cookies, and personal information before sharing page or network data.</p>
+      </div>
+    </section>
+
+    <section class="guide-step" aria-labelledby="step3-title">
+      <span class="step-number" aria-hidden="true">03</span>
+      <div class="step-content">
+        <h2 id="step3-title" data-i18n="step3Title">Get the script and try it on the target page</h2>
+        <p data-i18n="step3">Review the generated code, then run it on the page you described. Check the result and run it again to make sure it does not create duplicate labels or panels.</p>
+        <div class="use-grid">
+          <article><h3 data-i18n="extensionTitle">With Bookmarklet Script Manager</h3><p data-i18n="extensionText">For the GitHub import flow, first save the raw JavaScript in a public .js file on GitHub that you control. Then follow the installation guide to import that file’s GitHub link and run it on the intended page.</p><a class="secondary-link" href="install.html" data-language-link="install.html" data-i18n="installGuide">Installation guide</a></article>
+          <article><h3 data-i18n="bookmarkTitle">With a browser bookmark</h3><p data-i18n="bookmarkText">Ask the assistant for a complete javascript: bookmarklet URL, or encode the raw JavaScript with the converter. Create a bookmark, edit its URL to use that value, then click it on the target page.</p><a class="secondary-link" href="converter/" data-language-link="converter/" data-i18n="converterLink">Open URL converter</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="guide-step" aria-labelledby="step4-title">
+      <span class="step-number" aria-hidden="true">04</span>
+      <div class="step-content">
+        <h2 id="step4-title" data-i18n="step4Title">Tell the assistant what happened</h2>
+        <p data-i18n="step4">If the result is wrong, continue in the same conversation. Include the expected result, actual behavior, error message, and updated page evidence.</p>
+        <div class="prompt-box">
+          <label for="fix-prompt" data-i18n="fixLabel">Follow-up prompt</label>
+          <textarea id="fix-prompt" rows="8" readonly spellcheck="false"></textarea>
+          <button type="button" class="primary-button" data-copy-prompt="fix-prompt" data-i18n="copyPrompt">Copy prompt</button>
+          <p class="copy-status" data-copy-status="fix-prompt" role="status"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="skill-faq" aria-labelledby="faq-title">
+      <h2 id="faq-title" data-i18n="faqTitle">Before you start</h2>
+      <details><summary data-i18n="faq1Title">Do I need to publish to the Market?</summary><p data-i18n="faq1">No. You can use the Skill to make a personal bookmarklet. Catalog files and repository tests are only needed when integrating a tool into this repository.</p></details>
+      <details><summary data-i18n="faq2Title">Will it work on every page?</summary><p data-i18n="faq2">No. Bookmarklets run in the current webpage and may be limited by its security policy or cross-origin restrictions. They cannot run on browser-internal pages such as chrome://, and page changes can break a script.</p></details>
+      <details><summary data-i18n="faq3Title">What does the Skill provide?</summary><p data-i18n="faq3">It guides the assistant on page evidence, repeatable execution, feedback, and choosing a suitable interface. Generated code still needs to be reviewed and tested on the actual page.</p></details>
+    </section>
+  </main>
+  <footer class="site-footer"><p data-i18n="footerNote">Made with the make-bookmarklet Skill. Review and test each script before using it.</p><div class="footer-links"><a href="./" data-language-link="./">Market</a><a href="privacy.html" data-language-link="privacy.html" data-i18n="privacy">Privacy Policy</a></div></footer>
+</body>
+</html>

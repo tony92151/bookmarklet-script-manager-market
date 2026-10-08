@@ -1,4 +1,5 @@
 export default {
+  "skillGuide": "Guia da Skill",
   documentTitle: 'Bookmarklet Market — Ferramentas para o navegador',
   github: 'GitHub', extension: 'Extensão', eyebrow: 'Ferramentas para o navegador',
   heroTitle: 'Explore scripts úteis para a web',

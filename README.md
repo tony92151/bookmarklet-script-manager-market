@@ -15,6 +15,7 @@ Open the website: [Bookmarklet Launcher on GitHub Pages](https://tony92151.githu
 | [`index.html`](index.html) and [`assets/install.js`](assets/install.js) | Five-language Market with tool descriptions, previews, and GitHub links for import. |
 | [`assets/locales/index.js`](assets/locales/index.js) and [`assets/language.js`](assets/language.js) | Locale registry, runtime dictionaries, and shared language preference handling. |
 | [`install.html`](install.html) and [`install.en.html`](install.en.html) | Installation tutorial entry points using shared JavaScript and tutorial locale dictionaries. |
+| [`skill.html`](skill.html) | Five-language guide to using the make-bookmarklet Skill with AI, including copyable prompts and testing steps. |
 | [`bookmarklets/catalog.json`](bookmarklets/catalog.json) | Metadata, source paths, and intended URL patterns for the listed tools. |
 | [`bookmarklets/`](bookmarklets/) | JavaScript source for each bookmarklet. |
 | [`shared/bookmarklet.js`](shared/bookmarklet.js) | Encoding and decoding of `javascript:` bookmark URLs. |
