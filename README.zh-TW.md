@@ -15,6 +15,7 @@
 | [`index.html`](index.html) 與 [`assets/install.js`](assets/install.js) | 五語 Market，提供工具說明、預覽與用於匯入的 GitHub 連結。 |
 | [`assets/locales/index.js`](assets/locales/index.js) 與 [`assets/language.js`](assets/language.js) | 語系註冊表、執行時載入的翻譯字典，以及共用語言偏好處理。 |
 | [`install.html`](install.html) 與 [`install.en.html`](install.en.html) | 使用共用 JavaScript 與教學翻譯字典的安裝教學入口。 |
+| [`skill.html`](skill.html) | 五語 Skill 使用教學，提供 AI 提示詞、需求範例及腳本測試步驟。 |
 | [`bookmarklets/catalog.json`](bookmarklets/catalog.json) | 工具資訊、原始碼路徑與預期適用的網址格式。 |
 | [`bookmarklets/`](bookmarklets/) | 各書籤工具的 JavaScript 原始碼。 |
 | [`shared/bookmarklet.js`](shared/bookmarklet.js) | `javascript:` 書籤網址的編碼與解碼。 |

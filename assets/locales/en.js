@@ -1,4 +1,5 @@
 export default {
+  "skillGuide": "Skill guide",
   "documentTitle": "Bookmarklet Market — Browse browser tools",
   "github": "GitHub",
   "extension": "Extension",
