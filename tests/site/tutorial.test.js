@@ -11,7 +11,7 @@ async function tutorial() {
 
 test('every language renders all five scenes with the matching extension terms', async () => {
   const { createScenes, tutorialMessages } = await tutorial();
-  const cases = [['en', 'Manage Scripts', 'Save'], ['zh-TW', '管理指令碼', '儲存'], ['pt-BR', 'Gerenciar scripts', 'Salvar'], ['es', 'Gestionar scripts', 'Guardar'], ['ja', 'スクリプトを管理', '保存']];
+  const cases = [['en', 'Manage Scripts', 'Save'], ['zh-TW', '管理指令碼', '儲存'], ['pt-BR', 'Gerenciar scripts', 'Salvar'], ['es', 'Gestionar scripts', 'Guardar'], ['ja', 'スクリプトを管理', '保存'], ['zh-CN', '管理脚本', '保存'], ['ko', '스크립트 관리', '저장'], ['de', 'Skripte verwalten', 'Speichern'], ['fr', 'Gérer les scripts', 'Enregistrer']];
   for (const [language, manage, save] of cases) {
     const t = (key) => { assert.equal(typeof tutorialMessages[language][key], 'string', `${language}: ${key}`); return tutorialMessages[language][key]; };
     const scenes = createScenes(t, language);
@@ -112,7 +112,7 @@ test('browser bootstrap initializes the requested language and native selector',
   try {
     await import('../../assets/tutorial.js?browser-bootstrap-test');
     assert.equal(browser.document.documentElement.lang, 'en');
-    assert.equal(select.options.length, 5);
+    assert.equal(select.options.length, 9);
     assert.equal(select.value, 'en');
     assert.equal(browser.node('play').textContent, 'Play all steps');
     assert.match(browser.node('viewport').innerHTML, /Manage Scripts/);

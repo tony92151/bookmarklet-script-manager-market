@@ -2,11 +2,11 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 
-const locales = ['en', 'zh-TW', 'pt-BR', 'es', 'ja'];
+const locales = ['en', 'zh-TW', 'pt-BR', 'es', 'ja', 'zh-CN', 'ko', 'de', 'fr'];
 const catalog = JSON.parse(await readFile('bookmarklets/catalog.json', 'utf8'));
 
 for (const id of ['klook-booking-category', 'staymiles-rate-helper-zh', 'eva-mileage-hotel-helper-zh']) {
-  test(`${id} has complete catalog text in all five languages`, () => {
+  test(`${id} has complete catalog text in all nine languages`, () => {
     const entry = catalog.bookmarklets.find((record) => record.id === id);
     assert.ok(entry, `${id} should appear in the catalog`);
     const fields = { name: entry.name, description: entry.description };

@@ -7,7 +7,7 @@ function matchLanguage(code) {
   let candidate = code.toLowerCase();
   while (candidate) {
     const match = supportedLanguages.find((entry) => entry.code.toLowerCase() === candidate)
-      || supportedLanguages.find((entry) => entry.aliases?.includes(candidate));
+      || supportedLanguages.find((entry) => entry.aliases?.some((alias) => alias.toLowerCase() === candidate));
     if (match) return match.code;
     const separator = candidate.lastIndexOf('-');
     candidate = separator < 0 ? '' : candidate.slice(0, separator);

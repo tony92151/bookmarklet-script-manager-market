@@ -41,6 +41,8 @@
 
 ## 網站語言
 
+支援英文、繁體中文、巴西葡萄牙文、西班牙文、日文、簡體中文、韓文、德文與法文。
+
 可使用語言選單切換，或分享帶有語言參數的網址，例如 [`?lang=pt-BR`](https://tony92151.github.io/bookmarklet-script-manager-market/?lang=pt-BR)、[`?lang=es`](https://tony92151.github.io/bookmarklet-script-manager-market/?lang=es)、[`?lang=ja`](https://tony92151.github.io/bookmarklet-script-manager-market/?lang=ja)。教學也支援相同參數，例如 [`install.html?lang=ja`](install.html?lang=ja)。
 
 語言選擇優先順序為：網址中受支援的 `lang` 值、已儲存的 `bookmarklet-launcher-language` 偏好、瀏覽器的 `navigator.languages`，最後預設為英文。舊教學檔名所對應的語言只在瀏覽器偏好之後、最終英文預設之前作為備援。網站語言偏好與擴充功能儲存的語言設定互相獨立。
@@ -68,7 +70,7 @@ node --experimental-default-type=module --test
 ## 新增書籤工具
 
 1. 在 `bookmarklets/` 新增原始 JavaScript 檔案，不要加上 `javascript:` 前綴或預先編碼。建議用 IIFE 避免將變數放入頁面的全域範圍。
-2. 在 [`catalog.json`](bookmarklets/catalog.json) 新增紀錄，填入唯一的 `id`、五種語系（`en`、`zh-TW`、`pt-BR`、`es`、`ja`）的 `name` 和 `description`、位於 `bookmarklets/` 的 `source`、預期適用網址 `matches`、`version` 和 `updated`。若提供預覽截圖，每張截圖的 `alt` 替代文字也須翻譯為這五種語系。
+2. 在 [`catalog.json`](bookmarklets/catalog.json) 新增紀錄，填入唯一的 `id`、九種語系（`en`、`zh-TW`、`pt-BR`、`es`、`ja`、`zh-CN`、`ko`、`de`、`fr`）的 `name` 和 `description`、位於 `bookmarklets/` 的 `source`、預期適用網址 `matches`、`version` 和 `updated`。若提供預覽截圖，每張截圖的 `alt` 替代文字也須翻譯為這九種語系。
 3. 執行測試，將工具匯入擴充功能，並在目標頁面實際執行以驗證結果。
 
 清單頁提供每個原始碼檔案的 GitHub 連結，供擴充功能匯入。更多製作準則見 [`skill.md`](skill.md)。

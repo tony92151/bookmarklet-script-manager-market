@@ -12,10 +12,10 @@ Open the website: [Bookmarklet Launcher on GitHub Pages](https://tony92151.githu
 
 | Path | Purpose |
 | --- | --- |
-| [`index.html`](index.html) and [`assets/install.js`](assets/install.js) | Five-language Market with tool descriptions, previews, and GitHub links for import. |
+| [`index.html`](index.html) and [`assets/install.js`](assets/install.js) | Nine-language Market with tool descriptions, previews, and GitHub links for import. |
 | [`assets/locales/index.js`](assets/locales/index.js) and [`assets/language.js`](assets/language.js) | Locale registry, runtime dictionaries, and shared language preference handling. |
 | [`install.html`](install.html) and [`install.en.html`](install.en.html) | Installation tutorial entry points using shared JavaScript and tutorial locale dictionaries. |
-| [`skill.html`](skill.html) | Five-language guide to using the make-bookmarklet Skill with AI, including copyable prompts and testing steps. |
+| [`skill.html`](skill.html) | Nine-language guide to using the make-bookmarklet Skill with AI, including copyable prompts and testing steps. |
 | [`bookmarklets/catalog.json`](bookmarklets/catalog.json) | Metadata, source paths, and intended URL patterns for the listed tools. |
 | [`bookmarklets/`](bookmarklets/) | JavaScript source for each bookmarklet. |
 | [`shared/bookmarklet.js`](shared/bookmarklet.js) | Encoding and decoding of `javascript:` bookmark URLs. |
@@ -40,6 +40,8 @@ See the [animated installation guide](install.en.html). GitHub import requires B
 The scripts execute in the current page and can interact with its content. Review a script before importing it. The URL patterns in the catalog describe where a tool is intended to work.
 
 ## Website languages
+
+Supported languages: English, Traditional Chinese, Brazilian Portuguese, Spanish, Japanese, Simplified Chinese, Korean, German, and French.
 
 Use the language selector or share a URL such as [`?lang=pt-BR`](https://tony92151.github.io/bookmarklet-script-manager-market/?lang=pt-BR), [`?lang=es`](https://tony92151.github.io/bookmarklet-script-manager-market/?lang=es), or [`?lang=ja`](https://tony92151.github.io/bookmarklet-script-manager-market/?lang=ja). The tutorial accepts the same parameter, for example [`install.html?lang=ja`](install.html?lang=ja).
 
@@ -68,7 +70,7 @@ node --experimental-default-type=module --test
 ## Add a bookmarklet
 
 1. Add a raw JavaScript file to `bookmarklets/`. Do not include a `javascript:` prefix or pre-encode it. An IIFE keeps variables out of the page's global scope.
-2. Add an entry to [`catalog.json`](bookmarklets/catalog.json) with a unique `id`, `name` and `description` in all five locales (`en`, `zh-TW`, `pt-BR`, `es`, `ja`), a `source` under `bookmarklets/`, intended URL patterns in `matches`, `version`, and `updated`. Translate every screenshot's `alt` text into the same five locales when adding previews.
+2. Add an entry to [`catalog.json`](bookmarklets/catalog.json) with a unique `id`, `name` and `description` in all nine locales (`en`, `zh-TW`, `pt-BR`, `es`, `ja`, `zh-CN`, `ko`, `de`, `fr`), a `source` under `bookmarklets/`, intended URL patterns in `matches`, `version`, and `updated`. Translate every screenshot's `alt` text into the same nine locales when adding previews.
 3. Run the tests, import the tool into the extension, and try it on the target page.
 
 The catalog provides a GitHub link for each source file so the extension can import it. See [`skill.md`](skill.md) for the project's bookmarklet authoring guidance.

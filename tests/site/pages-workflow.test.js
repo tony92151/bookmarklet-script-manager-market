@@ -30,7 +30,7 @@ test('Pages workflow publishes the site at the repository root', async (t) => {
     assert.equal((await stat(join(projectDirectory, 'dist', path))).isFile(), true, path);
   }
   // Every shared module and locale must survive the real artifact assembly.
-  for (const path of ['assets/language.js', 'assets/tutorial.js', 'assets/tutorial-locales.js', 'assets/tutorial-scenes.css', 'assets/locales/index.js', ...['en', 'zh-TW', 'pt-BR', 'es', 'ja'].map((code) => `assets/locales/${code}.js`)]) {
+  for (const path of ['assets/language.js', 'assets/tutorial.js', 'assets/tutorial-locales.js', 'assets/tutorial-scenes.css', 'assets/locales/index.js', ...['en', 'zh-TW', 'pt-BR', 'es', 'ja', 'zh-CN', 'ko', 'de', 'fr'].map((code) => `assets/locales/${code}.js`)]) {
     assert.equal((await stat(join(projectDirectory, 'dist', path))).isFile(), true, path);
   }
 });

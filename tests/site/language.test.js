@@ -27,9 +27,10 @@ test('explicit URL overrides saved selection, which overrides browser preference
 
 test('browser preference order, regional aliases and unsupported languages resolve correctly', () => {
   for (const [languages, expected] of [
-    [['ko-KR', 'ja-JP', 'es'], 'ja'], [['pt-PT'], 'pt-BR'], [['pt'], 'pt-BR'],
-    [['es-MX'], 'es'], [['ZH-hant-TW'], 'zh-TW'], [['zh-CN'], 'zh-TW'],
-    [['en-GB', 'zh-TW'], 'en'], [['ko-KR'], 'en'],
+    [['ko-KR', 'ja-JP', 'es'], 'ko'], [['pt-PT'], 'pt-BR'], [['pt'], 'pt-BR'],
+    [['es-MX'], 'es'], [['ZH-hant-TW'], 'zh-TW'], [['zh-CN'], 'zh-CN'],
+    [['en-GB', 'zh-TW'], 'en'], [['ko-KR'], 'ko'], [['de-AT'], 'de'], [['fr-CA'], 'fr'],
+    [['zh-Hans'], 'zh-CN'], [['zh-SG'], 'zh-CN'], [['zh'], 'zh-TW'], [['it-IT'], 'en'],
   ]) assert.equal(page({ languages }).controller.language, expected);
   assert.equal(page({ language: 'ja-JP' }).controller.language, 'ja');
   assert.equal(page({ fallbackLanguage: 'zh-TW' }).controller.language, 'zh-TW');
@@ -51,7 +52,7 @@ test('manual switch updates document, navigation, current URL and saved preferen
   assert.deepEqual(ui.changes, ['en', 'ja']);
   ui.controller.setLanguage('unknown');
   assert.equal(ui.controller.language, 'ja');
-  assert.equal(ui.nodes.select.children.length, 5);
+  assert.equal(ui.nodes.select.children.length, 9);
   assert.equal(ui.nodes.select.children.find((option) => option.value === 'pt-BR').textContent, 'Português (Brasil)');
 });
 
@@ -73,6 +74,33 @@ test('all shipped site dictionaries have complete keys and interpolation paramet
       assert.equal(typeof locale.messages[key], 'string', `${locale.code}.${key}`);
       assert.ok(locale.messages[key].trim(), `${locale.code}.${key}`);
       assert.deepEqual(parameters(locale.messages[key]), parameters(english[key]), `${locale.code}.${key}`);
+    }
+  }
+});
+
+for (const code of ['zh-CN', 'ko', 'de', 'fr']) {
+  test(`${code} works through URL selection, manual switching and persisted navigation`, () => {
+    const ui = page({ search: `?lang=${code}`, saved: 'en', languages: ['ja'] });
+    assert.equal(ui.controller.language, code);
+    assert.equal(ui.nodes.link.href, `install.html?lang=${code}`);
+    assert.equal(ui.values['bookmarklet-launcher-language'], code);
+    ui.controller.setLanguage('en');
+    ui.controller.setLanguage(code);
+    assert.equal(ui.document.documentElement.lang, code);
+    assert.equal(ui.nodes.select.value, code);
+    assert.notEqual(ui.nodes.title.textContent, page({ search: '?lang=en' }).nodes.title.textContent);
+  });
+}
+
+test('all registered languages provide complete tutorial and Skill guide dictionaries', async () => {
+  const { supportedLanguages } = await import('../../assets/locales/index.js');
+  const { tutorialMessages } = await import('../../assets/tutorial-locales.js');
+  const { skillMessages } = await import('../../assets/skill-locales.js');
+  for (const dictionaries of [tutorialMessages, skillMessages]) {
+    assert.deepEqual(Object.keys(dictionaries).sort(), supportedLanguages.map(({ code }) => code).sort());
+    for (const { code } of supportedLanguages) {
+      assert.deepEqual(Object.keys(dictionaries[code]).sort(), Object.keys(dictionaries.en).sort(), code);
+      for (const key of Object.keys(dictionaries.en)) assert.ok(dictionaries[code][key]?.trim(), `${code}.${key}`);
     }
   }
 });
