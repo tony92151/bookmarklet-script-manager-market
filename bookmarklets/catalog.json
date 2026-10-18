@@ -154,6 +154,37 @@
       ],
       "version": "1.0.0",
       "updated": "2026-09-28"
+    },
+    {
+      "id": "seats-aero-total",
+      "name": {
+        "en": "Seats.aero Miles + Fees",
+        "zh-TW": "Seats.aero 里程加附加費總額",
+        "pt-BR": "Seats.aero Milhas + Taxas",
+        "es": "Seats.aero Millas + Tasas",
+        "ja": "Seats.aero マイル＋諸税",
+        "zh-CN": "Seats.aero 里程加附加费总额",
+        "ko": "Seats.aero 마일리지 + 수수료",
+        "de": "Seats.aero Meilen + Gebühren",
+        "fr": "Seats.aero Miles + Frais"
+      },
+      "description": {
+        "en": "Shows estimated USD totals beside award prices, valuing each mile at US$0.01. Reads associated tooltips; rerun after changing results.",
+        "zh-TW": "以每里 US$0.01 加上 tooltip 的 USD 附加費，在里數旁顯示估算總額。換頁後需重新執行。",
+        "pt-BR": "Exibe o total estimado em USD, avaliando cada milha em US$ 0,01 e somando as taxas do tooltip. Execute novamente após alterar os resultados.",
+        "es": "Muestra el total estimado en USD, valorando cada milla en US$0,01 y sumando las tasas del tooltip. Vuelve a ejecutar al cambiar los resultados.",
+        "ja": "1マイルを0.01米ドルとして、ツールチップの米ドル建て諸税を加えた概算額を表示します。結果変更後は再実行してください。",
+        "zh-CN": "以每里 US$0.01 加上 tooltip 的 USD 附加费，在里数旁显示估算总额。翻页后需重新执行。",
+        "ko": "마일당 US$0.01에 툴팁의 USD 수수료를 더한 예상 총액을 표시합니다. 검색 결과가 변경되면 다시 실행하세요.",
+        "de": "Zeigt geschätzte USD-Gesamtkosten mit US$0,01 pro Meile plus USD-Gebühren aus dem Tooltip. Nach Änderungen der Ergebnisse erneut ausführen.",
+        "fr": "Affiche le total estimé en USD à US$0,01 par mile, plus les frais USD de l’infobulle. Relancez après un changement des résultats."
+      },
+      "source": "bookmarklets/seats-aero-total.js",
+      "matches": [
+        "https://seats.aero/*"
+      ],
+      "version": "1.0.1",
+      "updated": "2026-10-14"
     }
   ]
 }
