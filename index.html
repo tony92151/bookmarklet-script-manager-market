@@ -8,17 +8,21 @@
   <link rel="icon" type="image/png" href="assets/launcher-icon.png">
   <link rel="stylesheet" href="assets/site.css">
   <link rel="stylesheet" href="assets/install.css">
-  <script type="module" src="assets/install.js?v=locales-1"></script>
+  <link rel="stylesheet" href="assets/market.css">
+  <script type="module" src="assets/install.js?v=market-2"></script>
 </head>
 <body>
   <header class="site-header">
     <a class="brand" href="./" aria-label="Bookmarklet Market home" data-i18n-aria-label="home" data-language-link="./">
       <img src="assets/launcher-icon.png" width="44" height="44" alt="">
-      <span class="brand-copy"><span class="brand-eyebrow">BOOKMARKLET</span><span class="brand-name">Market</span></span>
+      <span class="brand-name">Bookmarklet Market</span>
     </a>
 
-    <nav class="header-actions" aria-label="Site navigation" data-i18n-aria-label="navigation">
+    <div class="header-actions">
       <select class="language-select" data-language-select aria-label="Language" data-i18n-aria-label="language"></select>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-navigation" data-i18n="navigation" hidden>Site navigation</button>
+    </div>
+    <nav id="site-navigation" class="market-navigation" aria-label="Site navigation" data-i18n-aria-label="navigation">
       <a href="install.html" data-language-link="install.html" data-i18n="installGuide">Installation guide</a>
       <a href="skill.html" data-language-link="skill.html" data-i18n="skillGuide">Skill guide</a>
       <a href="https://github.com/tony92151/bookmarklet-script-manager-market" target="_blank" rel="noopener noreferrer" data-i18n="github">GitHub</a>
@@ -28,28 +32,20 @@
 
   <main>
     <section class="hero" aria-labelledby="page-title">
-      <p class="eyebrow" data-i18n="eyebrow">Browser tools</p>
-      <h1 id="page-title" data-i18n="heroTitle">Explore useful scripts for the web</h1>
+      <h1 id="page-title">Bookmarklet Market</h1>
       <p class="hero-copy" data-i18n="heroDescription">
-        Browse the collection and copy a GitHub link to review or share each script.
+        Small tools for the sites you use: compare mileage costs, hotel rewards and organize bookings.
       </p>
       <div class="hero-actions">
-        <a class="primary-link" href="#bookmarklets" data-i18n="browse">Browse bookmarklets</a>
         <a class="secondary-link" href="https://chromewebstore.google.com/detail/bookmarklet-script-manage/eodhedafaheiadegenafmjlkmifojemp" target="_blank" rel="noopener noreferrer" data-i18n="installExtension">Install Bookmarklet Manager</a>
       </div>
-      <p class="security-note" role="note">
-        <strong data-i18n="securityTitle">Security:</strong>
-        <span data-i18n="securityText">Review a script before running it.</span>
-      </p>
     </section>
 
     <section id="bookmarklets" class="catalog-section" aria-labelledby="catalog-title">
       <div class="section-heading">
         <div>
-          <p class="eyebrow" data-i18n="catalogEyebrow">Available tools</p>
           <h2 id="catalog-title" data-i18n="catalogTitle">Bookmarklets</h2>
         </div>
-        <p data-i18n="catalogDescription">Each script has a GitHub source page you can review and share.</p>
       </div>
 
       <div id="catalog-status" class="page-status" aria-live="polite"></div>
@@ -83,21 +79,26 @@
 
   <template id="bookmarklet-card-template">
     <article class="bookmarklet-card">
-      <div class="card-heading">
-        <div>
-          <p class="card-kicker" data-role="version"></p>
-          <h3 data-role="name"></h3>
+      <div class="card-content">
+        <div class="card-heading">
+          <div>
+            <h3 data-role="name"></h3>
+          </div>
         </div>
+        <p class="card-description" data-role="description"></p>
+        <div class="works-on">
+          <span class="meta-label" data-i18n-dynamic="worksOn">Works on</span>
+          <div class="pattern-list" data-role="matches"></div>
+        </div>
+        <p class="card-version" data-role="version"></p>
+        <div class="card-actions">
+          <button type="button" class="primary-button card-copy-button" data-role="copy-github-link">Copy GitHub link</button>
+          <a class="card-source-link" data-role="source" target="_blank" rel="noopener noreferrer">Source</a>
+          <a class="card-help-link" href="install.html" data-language-link="install.html" data-i18n="installGuide">Installation guide</a>
+        </div>
+        <p class="card-message" data-role="message" aria-live="polite"></p>
       </div>
       <div class="screenshot-comparison" data-role="screenshots" hidden></div>
-      <p class="card-description" data-role="description"></p>
-      <div class="works-on">
-        <span class="meta-label" data-i18n-dynamic="worksOn">Works on</span>
-        <div class="pattern-list" data-role="matches"></div>
-      </div>
-      <button type="button" class="primary-button card-copy-button" data-role="copy-github-link">Copy GitHub link</button>
-      <a class="card-help-link" href="install.html" data-language-link="install.html" data-i18n="installGuide">Installation guide</a>
-      <p class="card-message" data-role="message" aria-live="polite"></p>
     </article>
   </template>
 </body>

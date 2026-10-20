@@ -1,0 +1,92 @@
+/* Catalog layout; shared tutorial and policy styles stay in site.css. */
+:root { --bg: #faf9fd; --preview-bg: #f7f7fa; }
+body { font-size: 16px; }
+.site-header, main, .site-footer { width: min(1120px, calc(100% - 40px)); }
+.site-header { display: grid; grid-template-columns: 1fr auto; gap: 16px 24px; padding: 24px 0; }
+.brand-name { font-size: 16px; letter-spacing: 0; }
+.brand img { width: 36px; height: 36px; border-radius: 8px; }
+.header-actions { justify-content: flex-end; }
+.language-select { min-height: 44px; max-width: 160px; font-size: 14px; }
+.market-navigation { grid-column: 1 / -1; display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 8px 24px; }
+.market-navigation a { min-height: 44px; display: inline-flex; align-items: center; color: var(--muted); font-size: 14px; text-decoration: none; }
+.market-navigation a:hover { color: var(--primary); text-decoration: underline; }
+.nav-toggle { display: none; min-height: 44px; border: 0; background: transparent; color: var(--text); font-size: 14px; padding: 8px; }
+.hero { max-width: none; padding: 24px 0 36px; }
+.hero h1 { max-width: none; margin: 0 0 16px; font-size: 48px; line-height: 1.1; letter-spacing: 0; }
+.hero-copy { max-width: 760px; color: var(--text); font-size: 18px; line-height: 1.6; }
+.hero-actions { margin-top: 20px; }
+.primary-link, .secondary-link, .primary-button, .secondary-button { min-height: 44px; border-radius: 6px; font-size: 14px; text-align: center; }
+.hero-actions .secondary-link { border: 0; padding: 0; min-height: 44px; background: transparent; color: var(--primary-dark); text-decoration: underline; text-underline-offset: 4px; }
+.section-heading { margin-bottom: 16px; }
+.section-heading h2 { margin: 0; font-size: 24px; letter-spacing: 0; }
+.page-status:empty { display: none; }
+.bookmarklet-grid { display: flex; flex-direction: column; gap: 16px; }
+.bookmarklet-card { width: 100%; padding: 28px; border: 0; border-radius: 8px; background: var(--surface); }
+.bookmarklet-card.has-preview { display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, 360px); align-items: center; gap: 40px; }
+.card-content { min-width: 0; }
+.card-heading h3 { margin: 0; font-size: 21px; line-height: 1.4; letter-spacing: 0; overflow-wrap: anywhere; }
+.card-description { min-height: 0; margin: 12px 0 20px; color: var(--text); font-size: 16px; line-height: 1.6; max-width: 740px; }
+.works-on { margin: 0 0 12px; }
+.meta-label { color: var(--muted); font-size: 13px; letter-spacing: 0; font-weight: 500; text-transform: none; }
+.pattern-list { margin-top: 4px; gap: 4px 12px; }
+.pattern { border: 0; padding: 0; background: transparent; font-size: 12px; line-height: 1.6; border-radius: 0; }
+.card-version { margin: 0 0 20px; color: var(--muted); font-size: 12px; }
+.card-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px; }
+.card-copy-button { width: auto; margin: 0; }
+.card-help-link, .card-source-link { display: inline-flex; align-items: center; min-height: 44px; margin: 0; font-size: 14px; color: var(--primary-dark); text-underline-offset: 4px; }
+.card-message { min-height: 0; margin: 12px 0 0; font-size: 14px; }
+.card-message:empty { display: none; }
+.screenshot-comparison { display: block; min-width: 0; margin: 0; }
+.preview-switch { display: flex; gap: 4px; width: fit-content; padding: 3px; margin-bottom: 12px; background: var(--surface-soft); border-radius: 6px; }
+.preview-switch button { min-width: 88px; min-height: 44px; padding: 8px 14px; border: 0; border-radius: 4px; background: transparent; color: var(--muted); font-size: 14px; }
+.preview-switch button[aria-pressed="true"] { background: var(--text); color: var(--surface); }
+.preview-switch button:hover { text-decoration: underline; text-underline-offset: 4px; }
+.screenshot-item[hidden], .screenshot-comparison[hidden] { display: none; }
+.screenshot-item figcaption { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.screenshot-item a { aspect-ratio: 4 / 3; border: 0; border-radius: 4px; background: var(--preview-bg); }
+.screenshot-item a:hover { box-shadow: none; outline: 2px solid var(--primary); outline-offset: 3px; }
+.screenshot-item img { object-fit: contain; }
+.security-note { margin: 24px 0 0; padding: 0; border: 0; border-radius: 0; background: transparent; color: var(--muted); font-size: 14px; }
+.catalog-section { padding-bottom: 36px; }
+.site-footer { border: 0; padding: 24px 0; font-size: 13px; }
+.site-footer a { min-height: 44px; display: inline-flex; align-items: center; font-size: 13px; }
+.copy-dialog { border-radius: 8px; }
+.copy-dialog textarea { font-size: 14px; }
+@media (min-width: 1100px) {
+  .site-header { grid-template-columns: auto 1fr auto; }
+  .header-actions { grid-column: 3; grid-row: 1; }
+  .market-navigation { grid-column: 2; grid-row: 1; }
+}
+@media (min-width: 761px) and (max-width: 1099px) {
+  .bookmarklet-card.has-preview { grid-template-columns: minmax(0, 1fr) 280px; gap: 24px; }
+}
+@media (max-width: 760px) {
+  .site-header { grid-template-columns: minmax(0, 1fr); gap: 8px; padding: 16px 0; }
+  .brand-name { max-width: none; font-size: 14px; line-height: 1.3; }
+  .brand { gap: 8px; }
+  .brand img { width: 32px; height: 32px; }
+  .header-actions { width: 100%; gap: 12px; justify-content: space-between; }
+  .language-select { max-width: 125px; min-width: 0; padding-inline: 8px; font-size: 13px; }
+  .nav-toggle:not([hidden]) { display: inline-flex; align-items: center; }
+  .market-navigation { justify-content: flex-start; gap: 0 20px; }
+  .market-navigation.is-collapsed { display: none; }
+  .hero { padding: 20px 0 28px; }
+  .hero h1 { font-size: 32px; }
+  .hero-copy { font-size: 16px; }
+  .hero-actions { margin-top: 12px; }
+  .hero-actions > a { width: auto; }
+  .bookmarklet-card { padding: 20px; }
+  .bookmarklet-card.has-preview { grid-template-columns: 1fr; gap: 20px; }
+  .card-heading h3 { font-size: 20px; }
+  .card-actions { gap: 4px 16px; }
+  .card-copy-button { flex-basis: 100%; }
+  .screenshot-comparison { width: 100%; max-width: 480px; }
+  .screenshot-item a { aspect-ratio: 3 / 2; }
+  .section-heading h2 { font-size: 22px; }
+}
+@media (max-width: 380px) {
+  .site-header { grid-template-columns: 1fr; }
+  .brand-name { max-width: none; }
+  .header-actions { justify-content: space-between; }
+  .hero h1 { font-size: 28px; }
+}

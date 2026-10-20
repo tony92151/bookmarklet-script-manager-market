@@ -4,15 +4,21 @@
 <link rel="stylesheet" href="assets/tutorial-scenes.css">
 <link rel="stylesheet" href="assets/site.css">
 <link rel="stylesheet" href="assets/walkthrough.css">
+<link rel="stylesheet" href="assets/market.css">
+<link rel="stylesheet" href="assets/guides.css">
+<script type="module" src="assets/navigation.js"></script>
 </head><body class="walkthrough-page">
 <header class="site-header">
-  <a class="brand" href="./" data-language-link="./" data-i18n-aria-label="home" aria-label="Bookmarklet Market home"><img src="./assets/launcher-icon.png" width="44" height="44" alt=""><span class="brand-copy"><span class="brand-eyebrow">BOOKMARKLET</span><span class="brand-name">Market</span></span></a>
-  <nav class="header-actions" data-i18n-aria-label="navigation" aria-label="Site navigation">
+  <a class="brand" href="./" data-language-link="./" data-i18n-aria-label="home" aria-label="Bookmarklet Market home"><img src="./assets/launcher-icon.png" width="44" height="44" alt=""><span class="brand-name">Bookmarklet Market</span></a>
+  <div class="header-actions">
     <select class="language-select" data-language-select data-i18n-aria-label="language" aria-label="Language"></select>
-    <a href="./" data-language-link="./" data-i18n="home">Market</a>
+    <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-navigation" data-i18n="navigation" hidden>Site navigation</button>
+  </div>
+  <nav id="site-navigation" class="market-navigation" data-i18n-aria-label="navigation" aria-label="Site navigation">
+    <a href="install.html" data-language-link="install.html" aria-current="page" data-i18n="installGuide">Installation guide</a>
+    <a href="skill.html" data-language-link="skill.html" data-i18n="skillGuide">Skill guide</a>
     <a href="https://github.com/tony92151/bookmarklet-script-manager-market" target="_blank" rel="noopener noreferrer" data-i18n="github">GitHub</a>
     <a href="https://chromewebstore.google.com/detail/bookmarklet-script-manage/eodhedafaheiadegenafmjlkmifojemp" target="_blank" rel="noopener noreferrer" data-i18n="extension">Extension</a>
-    <a href="privacy.html" data-language-link="privacy.html" data-i18n="privacy">Privacy Policy</a>
   </nav>
 </header>
 <main>
@@ -23,8 +29,10 @@
 <button class="step" data-scene="2"><b><span>03</span><strong data-i18n="step2">開啟指令碼管理器</strong></b><small data-i18n="desc2">點選擴充功能圖示，再點彈出視窗底部的「管理指令碼」。</small></button>
 <button class="step" data-scene="3"><b><span>04</span><strong data-i18n="step3">貼上連結並儲存</strong></b><small data-i18n="desc3">在管理頁切到 GitHub 分頁，貼上連結並儲存。</small></button>
 <button class="step" data-scene="4"><b><span>05</span><strong data-i18n="step4">到適用網站執行</strong></b><small data-i18n="desc4">開啟 StayMiles 飯店頁，從擴充功能點選已儲存的指令碼。</small></button>
+
+</div><div><div class="controls"><button class="primary" id="play">播放全部步驟</button><button id="replay" data-i18n="replay">重播這一步</button><button id="next" data-i18n="next">下一步 →</button><small data-i18n="pace">可逐步觀看</small></div><div class="browser"><div class="chrome-tabs"><div class="window-controls"><i class="dot"></i><i class="dot yellow"></i><i class="dot green"></i></div><div class="tab-chevron">⌄</div><div class="chrome-tab"><img src="assets/tutorial/launcher-icon.png" alt=""><span data-i18n="ext_brandName">指令碼管理器</span><i class="tab-close">×</i></div><div class="chrome-tab active"><span>Bookmarklet Market</span><i class="tab-close">×</i></div><div class="new-tab">+</div></div><div class="chrome"><div class="browser-nav"><span>←</span><span>→</span><span>↻</span></div><div class="address"><span class="google">G</span><span class="url-text" id="address">chromewebstore.google.com</span></div><img class="toolbar-extension" id="toolbar-extension" src="assets/tutorial/launcher-icon.png" data-i18n-alt="pinnedAlt" alt="Bookmarklet Script Manager pinned to the toolbar"><svg class="toolbar-puzzle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 4V3a3 3 0 0 1 6 0v1h5v5h1a3 3 0 0 1 0 6h-1v5H4v-5h1a3 3 0 0 0 0-6H4V4Z"/></svg><span class="toolbar-divider"></span><span class="toolbar-profile" data-i18n="profile">我</span><span>⋮</span></div><div class="viewport" id="viewport"></div><div class="caption" id="caption" aria-live="polite"></div></div></div></div>
 <p class="footnote" data-i18n="footnote">介面示意，Chrome 對話框可能不同。GitHub 匯入需要 1.2.1 或更新版本。截圖與指令碼保留原始語言；擴充功能可用語言依安裝版本而定。 Chrome 對話框使用瀏覽器語言。</p>
-</div><div><div class="browser"><div class="chrome-tabs"><div class="window-controls"><i class="dot"></i><i class="dot yellow"></i><i class="dot green"></i></div><div class="tab-chevron">⌄</div><div class="chrome-tab"><img src="assets/tutorial/launcher-icon.png" alt=""><span data-i18n="ext_brandName">指令碼管理器</span><i class="tab-close">×</i></div><div class="chrome-tab active"><span>Bookmarklet Market</span><i class="tab-close">×</i></div><div class="new-tab">+</div></div><div class="chrome"><div class="browser-nav"><span>←</span><span>→</span><span>↻</span></div><div class="address"><span class="google">G</span><span class="url-text" id="address">chromewebstore.google.com</span></div><img class="toolbar-extension" id="toolbar-extension" src="assets/tutorial/launcher-icon.png" data-i18n-alt="pinnedAlt" alt="Bookmarklet Script Manager pinned to the toolbar"><svg class="toolbar-puzzle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 4V3a3 3 0 0 1 6 0v1h5v5h1a3 3 0 0 1 0 6h-1v5H4v-5h1a3 3 0 0 0 0-6H4V4Z"/></svg><span class="toolbar-divider"></span><span class="toolbar-profile" data-i18n="profile">我</span><span>⋮</span></div><div class="viewport" id="viewport"></div><div class="caption" id="caption" aria-live="polite"></div></div><div class="controls"><button class="primary" id="play">播放全部步驟</button><button id="replay" data-i18n="replay">重播這一步</button><button id="next" data-i18n="next">下一步 →</button><small data-i18n="pace">可逐步觀看</small></div></div></div>
 </main>
+<footer class="site-footer"><p data-i18n="footerText">Review a script and its intended websites before running it.</p><div class="footer-links"><a href="./" data-language-link="./">Market</a><a href="privacy.html" data-language-link="privacy.html" data-i18n="privacy">Privacy Policy</a></div></footer>
 <script type="module" src="assets/tutorial.js"></script>
 </body></html>

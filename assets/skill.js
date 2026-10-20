@@ -1,11 +1,20 @@
 import { createLanguageController } from './language.js';
 import { skillMessages } from './skill-locales.js';
 
+function fitPrompts() {
+  document.querySelectorAll('.prompt-box textarea').forEach((prompt) => {
+    prompt.style.height = 'auto';
+    prompt.style.height = `${prompt.scrollHeight + 2}px`;
+  });
+}
+window.addEventListener('resize', fitPrompts);
+
 const language = createLanguageController({
   messages: skillMessages,
   onChange(code) {
     document.getElementById('starter-prompt').value = skillMessages[code].prompt;
     document.getElementById('fix-prompt').value = skillMessages[code].fixPrompt;
+    fitPrompts();
     document.querySelectorAll('[data-copy-status]').forEach((status) => { status.textContent = ''; });
   },
 });

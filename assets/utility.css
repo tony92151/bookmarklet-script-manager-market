@@ -1,0 +1,20 @@
+.converter-page, .policy { width: min(1120px, calc(100% - 40px)); margin: 0 auto 64px; padding-top: 24px; }
+.converter-card { padding: 0; border: 0; border-radius: 0; background: transparent; }
+.converter-card h1, .policy h1 { margin: 0 0 16px; font-size: 48px; line-height: 1.1; letter-spacing: 0; }
+.converter-card .hero-copy { font-size: 18px; }
+.converter-card label { font-size: 16px; }
+.converter-card textarea { font-size: 16px; border-radius: 6px; }
+.converter-actions > button { width: auto; }
+.converter-actions button:disabled { opacity: .45; cursor: not-allowed; }
+.policy .back-link { display: inline-block; margin-bottom: 20px; font-size: 14px; }
+.policy section { max-width: 760px; margin-top: 40px; padding: 0; border: 0; border-radius: 0; background: transparent; }
+.policy h2 { font-size: 24px; letter-spacing: 0; }
+.policy p, .policy dd { font-size: 16px; }
+.policy .updated { font-size: 14px; }
+@media (max-width: 760px) {
+  .converter-page, .policy { padding-top: 20px; }
+  .converter-card h1, .policy h1 { font-size: 32px; }
+  .converter-card .hero-copy { font-size: 16px; }
+  .policy h2 { font-size: 22px; }
+  .converter-actions { gap: 8px; }
+}

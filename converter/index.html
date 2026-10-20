@@ -9,14 +9,20 @@
   <link rel="stylesheet" href="../assets/site.css">
   <link rel="stylesheet" href="../assets/install.css">
   <link rel="stylesheet" href="../assets/converter.css">
+  <link rel="stylesheet" href="../assets/market.css">
+  <link rel="stylesheet" href="../assets/utility.css">
   <script type="module" src="../assets/converter.js"></script>
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="../" aria-label="Bookmarklet Market home"><img src="../assets/launcher-icon.png" width="44" height="44" alt=""><span class="brand-copy"><span class="brand-eyebrow">BOOKMARKLET</span><span class="brand-name">Market</span></span></a>
-    <nav class="header-actions" aria-label="Site navigation">
-      <a href="../">Market</a>
-      <a href="../install.en.html">Installation guide / 安裝教學</a>
+    <a class="brand" href="../" data-language-link="../" aria-label="Bookmarklet Market home"><img src="../assets/launcher-icon.png" width="36" height="36" alt=""><span class="brand-name">Bookmarklet Market</span></a>
+    <div class="header-actions">
+      <select class="language-select" data-language-select data-i18n-aria-label="language" aria-label="Language"></select>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-navigation" data-i18n="navigation" hidden>Site navigation</button>
+    </div>
+    <nav id="site-navigation" class="market-navigation" aria-label="Site navigation">
+      <a href="../install.html" data-language-link="../install.html" data-i18n="installGuide">Installation guide</a>
+      <a href="../skill.html" data-language-link="../skill.html" data-i18n="skillGuide">Skill guide</a>
       <a href="https://github.com/tony92151/bookmarklet-script-manager-market" target="_blank" rel="noopener noreferrer">GitHub</a>
       <a href="https://chromewebstore.google.com/detail/bookmarklet-script-manage/eodhedafaheiadegenafmjlkmifojemp" target="_blank" rel="noopener noreferrer">Extension</a>
     </nav>
@@ -24,24 +30,23 @@
 
   <main class="converter-page">
     <section class="converter-card" aria-labelledby="converter-title">
-      <p class="eyebrow">Local browser tool</p>
-      <h1 id="converter-title">URL Encoding Converter</h1>
-      <p class="hero-copy">Paste JavaScript or an encoded bookmarklet. Nothing is uploaded.</p>
+      <h1 id="converter-title" data-i18n="converterTitle">URL Encoding Converter</h1>
+      <p class="hero-copy" data-i18n="converterDescription">Paste JavaScript or an encoded bookmarklet. Nothing is uploaded.</p>
 
-      <label for="converter-input">Input</label>
-      <textarea id="converter-input" rows="12" spellcheck="false" placeholder="Paste JavaScript or javascript:%28... here"></textarea>
+      <label for="converter-input" data-i18n="input">Input</label>
+      <textarea id="converter-input" rows="6" spellcheck="false" placeholder="alert('Hello');"></textarea>
 
       <div class="converter-actions">
-        <button id="encode-button" type="button" class="primary-button">Encode as bookmarklet</button>
-        <button id="decode-button" type="button" class="secondary-button">Decode</button>
-        <button id="clear-button" type="button" class="secondary-button">Clear</button>
+        <button id="encode-button" type="button" class="primary-button" data-i18n="encode">Encode as bookmarklet</button>
+        <button id="decode-button" type="button" class="secondary-button" data-i18n="decode">Decode</button>
+        <button id="clear-button" type="button" class="secondary-button" data-i18n="clear">Clear</button>
       </div>
 
-      <label for="converter-output">Output</label>
-      <textarea id="converter-output" rows="12" readonly spellcheck="false"></textarea>
+      <label for="converter-output" data-i18n="output">Output</label>
+      <textarea id="converter-output" rows="6" readonly spellcheck="false"></textarea>
 
       <div class="converter-actions">
-        <button id="copy-output-button" type="button" class="primary-button" disabled>Copy output</button>
+        <button id="copy-output-button" type="button" class="primary-button" data-i18n="copyOutput" disabled>Copy output</button>
       </div>
       <p id="converter-status" class="card-message" aria-live="polite"></p>
     </section>

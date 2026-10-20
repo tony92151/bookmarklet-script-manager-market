@@ -1,4 +1,5 @@
 import { createLanguageController } from './language.js';
+import './navigation.js';
 
 (() => {
   'use strict';
@@ -43,17 +44,21 @@ import { createLanguageController } from './language.js';
       nodes.copy.textContent = t('copyGithubLink');
       nodes.guide.textContent = t('installGuide');
       nodes.guide.href = language.link('install.html');
+      nodes.source.textContent = t('source');
       if (nodes.message.dataset.messageKey) nodes.message.textContent = t(nodes.message.dataset.messageKey);
       nodes.worksOn.textContent = t('worksOn');
       nodes.version.textContent = [
         record.version ? `${t('version')} ${record.version}` : '',
         record.updated ? `${t('updated')} ${record.updated}` : ''
       ].filter(Boolean).join(' · ');
-      nodes.screenshots.querySelectorAll('[data-stage]').forEach((figure) => {
+      nodes.screenshots.querySelectorAll('figure[data-stage]').forEach((figure) => {
         const stage = figure.dataset.stage;
         figure.querySelector('figcaption').textContent = t(stage);
         figure.querySelector('img').alt = localized(record.screenshots[stage].alt);
         figure.querySelector('a').setAttribute('aria-label', `${localized(record.name)} — ${t(stage)}`);
+      });
+      nodes.screenshots.querySelectorAll('button[data-stage]').forEach((button) => {
+        button.textContent = t(button.dataset.stage);
       });
     });
   };
@@ -131,17 +136,38 @@ import { createLanguageController } from './language.js';
       matches: card.querySelector('[data-role="matches"]'),
       copy: card.querySelector('[data-role="copy-github-link"]'),
       guide: card.querySelector('.card-help-link'),
+      source: card.querySelector('[data-role="source"]'),
       message: card.querySelector('[data-role="message"]'),
       worksOn: card.querySelector('[data-i18n-dynamic="worksOn"]'),
       screenshots: card.querySelector('[data-role="screenshots"]')
     };
 
     if (record.screenshots) {
+      card.classList.add('has-preview');
       nodes.screenshots.hidden = false;
+      const controls = document.createElement('div');
+      controls.className = 'preview-switch';
+      nodes.screenshots.appendChild(controls);
       for (const stage of ['before', 'after']) {
         const figure = document.createElement('figure');
         figure.className = 'screenshot-item';
         figure.dataset.stage = stage;
+        figure.id = `preview-${record.id}-${stage}`;
+        figure.hidden = stage !== 'after';
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.dataset.stage = stage;
+        button.setAttribute('aria-controls', figure.id);
+        button.setAttribute('aria-pressed', String(stage === 'after'));
+        button.addEventListener('click', () => {
+          controls.querySelectorAll('button').forEach((control) => {
+            control.setAttribute('aria-pressed', String(control === button));
+          });
+          nodes.screenshots.querySelectorAll('figure').forEach((item) => {
+            item.hidden = item !== figure;
+          });
+        });
+        controls.appendChild(button);
         const caption = document.createElement('figcaption');
         const link = document.createElement('a');
         link.href = record.screenshots[stage].src;
@@ -169,6 +195,7 @@ import { createLanguageController } from './language.js';
       nodes,
       githubUrl: new URL(record.source, GITHUB_SOURCE_ROOT).href
     };
+    nodes.source.href = cardState.githubUrl;
     nodes.copy.addEventListener('click', () => copyGithubLink(cardState));
     state.cards.set(record.id, cardState);
     elements.list.appendChild(fragment);

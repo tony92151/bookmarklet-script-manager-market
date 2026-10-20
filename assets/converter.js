@@ -1,4 +1,5 @@
 import { decodeBookmarklet, toBookmarkletUrl } from '../shared/bookmarklet.js';
+import { language } from './utility-language.js';
 
 (() => {
   'use strict';
@@ -22,28 +23,35 @@ import { decodeBookmarklet, toBookmarkletUrl } from '../shared/bookmarklet.js';
     copyButton.disabled = !value;
   };
 
+  input.addEventListener('input', () => {
+    setOutput('');
+    setStatus('');
+  });
+
   encodeButton.addEventListener('click', () => {
-    if (!input.value) {
-      setStatus('Paste JavaScript before encoding.', 'error');
+    if (!input.value.trim()) {
+      setOutput('');
+      setStatus(language.t('encodeEmpty'), 'error');
       return;
     }
 
     setOutput(toBookmarkletUrl(input.value));
-    setStatus('Bookmarklet URL created.', 'success');
+    setStatus(language.t('encoded'), 'success');
   });
 
   decodeButton.addEventListener('click', () => {
-    if (!input.value) {
-      setStatus('Paste an encoded bookmarklet before decoding.', 'error');
+    if (!input.value.trim()) {
+      setOutput('');
+      setStatus(language.t('decodeEmpty'), 'error');
       return;
     }
 
     try {
       setOutput(decodeBookmarklet(input.value));
-      setStatus('Bookmarklet decoded.', 'success');
+      setStatus(language.t('decoded'), 'success');
     } catch (error) {
       setOutput('');
-      setStatus(error instanceof Error ? error.message : String(error), 'error');
+      setStatus(language.t('decodeError'), 'error');
     }
   });
 
@@ -51,11 +59,11 @@ import { decodeBookmarklet, toBookmarkletUrl } from '../shared/bookmarklet.js';
     try {
       if (!navigator.clipboard?.writeText) throw new Error('Clipboard API unavailable');
       await navigator.clipboard.writeText(output.value);
-      setStatus('Output copied.', 'success');
+      setStatus(language.t('outputCopied'), 'success');
     } catch {
       output.focus();
       output.select();
-      setStatus('Clipboard access failed. The output has been selected for manual copying.', 'error');
+      setStatus(language.t('outputFallback'), 'error');
     }
   });
 
