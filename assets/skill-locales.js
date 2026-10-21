@@ -54,7 +54,7 @@ export const skillMessages = {
     "documentTitle": "用 AI 製作自己的網頁小工具 — Bookmarklet Market",
     "metaDescription": "學習使用 make-bookmarklet Skill：向 AI 描述需求、提供頁面資料，並取得與測試自己的網頁小工具。",
     "eyebrow": "MAKE BOOKMARKLET · AI 使用教學",
-    "heroTitle": "把網頁上的重複操作，變成自己的小工具。",
+    "heroTitle": "用 AI，製作你的網頁工具。",
     "heroDescription": "把 make-bookmarklet Skill 交給 AI，再說明你想完成的事。它會引導 AI 製作能在目前網頁執行的 JavaScript 小工具。",
     "getStarted": "從提示詞開始",
     "readSkill": "閱讀 Skill 原文",

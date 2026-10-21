@@ -36,7 +36,7 @@ export default {
   "language": "Language",
   "home": "Bookmarklet Market home",
   "navigation": "Site navigation",
-  "privacy": "Privacy policy (English / 繁體中文)",
+  "privacy": "Privacy policy",
   "metaDescription": "Browse useful bookmarklets and copy their GitHub source links.",
   "copyLinkLabel": "GitHub source link"
 };

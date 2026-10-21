@@ -36,7 +36,7 @@ export default {
   "language": "Sprache",
   "home": "Bookmarklet Market Startseite",
   "navigation": "Seitennavigation",
-  "privacy": "Datenschutzerklärung (English / 繁體中文)",
+  "privacy": "Datenschutzerklärung",
   "metaDescription": "Entdecke nützliche Bookmarklets und kopiere die GitHub-Links zu ihrem Quellcode.",
   "copyLinkLabel": "GitHub-Link zum Quellcode"
 };

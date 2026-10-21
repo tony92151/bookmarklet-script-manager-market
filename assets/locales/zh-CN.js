@@ -36,7 +36,7 @@ export default {
   "language": "语言",
   "home": "Bookmarklet Market 首页",
   "navigation": "网站导航",
-  "privacy": "隐私政策（English / 繁體中文）",
+  "privacy": "隐私政策",
   "metaDescription": "浏览实用的书签工具，复制其 GitHub 源代码链接。",
   "copyLinkLabel": "GitHub 源代码链接"
 };

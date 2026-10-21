@@ -36,7 +36,7 @@ export default {
   "language": "Langue",
   "home": "Accueil de Bookmarklet Market",
   "navigation": "Navigation du site",
-  "privacy": "Politique de confidentialité (English / 繁體中文)",
+  "privacy": "Politique de confidentialité",
   "metaDescription": "Parcourez des bookmarklets utiles et copiez les liens vers leur code source sur GitHub.",
   "copyLinkLabel": "Lien GitHub du code source"
 };

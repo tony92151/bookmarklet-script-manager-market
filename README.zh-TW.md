@@ -82,3 +82,7 @@ node --experimental-default-type=module --test
 ## 授權
 
 [MIT](LICENSE)
+
+## 設計風格
+
+新版設計採用已確認的「淺紫科技感」。後續視覺調整請參考[設計指南](docs/brand-guidelines.md)，內含配色、字體、排版、互動規範與固定參考截圖。

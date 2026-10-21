@@ -1,3 +1,4 @@
+import { pageMessages } from './page-locales.js';
 import { supportedLanguages } from './locales/index.js';
 
 const STORAGE_KEY = 'bookmarklet-launcher-language';
@@ -25,7 +26,7 @@ export function createLanguageController({
   }
   let language = 'en';
   const dictionary = (code) => supportedLanguages.find((entry) => entry.code === code)?.messages || {};
-  const t = (key, values = {}) => (messages[language]?.[key] || dictionary(language)[key]
+  const t = (key, values = {}) => (messages[language]?.[key] || pageMessages[language]?.[key] || dictionary(language)[key]
     || messages.en?.[key] || dictionary('en')[key] || key)
     .replace(/\{(\w+)\}/g, (_, name) => String(values[name] ?? ''));
 
