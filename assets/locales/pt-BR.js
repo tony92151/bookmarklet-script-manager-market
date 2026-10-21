@@ -16,6 +16,6 @@ export default {
   copied: 'Link do GitHub copiado.', copyFailed: 'A área de transferência não está disponível. Copie o link na janela.',
   version: 'Versão', updated: 'Atualizado em', before: 'Antes', after: 'Depois',
   language: 'Idioma', home: 'Página inicial do Bookmarklet Market', navigation: 'Navegação do site',
-  privacy: 'Política de privacidade (English / 繁體中文)',
+  privacy: 'Política de privacidade',
   metaDescription: 'Explore bookmarklets úteis e copie os links do código-fonte no GitHub.', copyLinkLabel: 'Link do código-fonte no GitHub',
 };

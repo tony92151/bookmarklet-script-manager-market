@@ -16,6 +16,6 @@ export default {
   copied: 'Enlace de GitHub copiado.', copyFailed: 'No se pudo acceder al portapapeles. Copia el enlace desde el cuadro de diálogo.',
   version: 'Versión', updated: 'Actualizado', before: 'Antes', after: 'Después',
   language: 'Idioma', home: 'Inicio de Bookmarklet Market', navigation: 'Navegación del sitio',
-  privacy: 'Política de privacidad (English / 繁體中文)',
+  privacy: 'Política de privacidad',
   metaDescription: 'Descubre bookmarklets útiles y copia sus enlaces de código fuente en GitHub.', copyLinkLabel: 'Enlace al código fuente en GitHub',
 };

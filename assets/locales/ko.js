@@ -36,7 +36,7 @@ export default {
   "language": "언어",
   "home": "Bookmarklet Market 홈",
   "navigation": "사이트 탐색",
-  "privacy": "개인정보 처리방침 (English / 繁體中文)",
+  "privacy": "개인정보 처리방침",
   "metaDescription": "유용한 북마클릿을 둘러보고 GitHub 소스 코드 링크를 복사하세요.",
   "copyLinkLabel": "GitHub 소스 코드 링크"
 };

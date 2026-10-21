@@ -1,49 +1,46 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-TW">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Convert JavaScript to and from a URL-encoded bookmarklet.">
-  <title>Bookmarklet URL Encoding Converter</title>
+  <meta data-i18n-content="converterIntro" name="description" content="Convert JavaScript to and from a URL-encoded bookmarklet.">
+  <title>Bookmarklet 網址轉換工具</title>
   <link rel="icon" type="image/png" href="../assets/launcher-icon.png">
   <link rel="stylesheet" href="../assets/site.css">
   <link rel="stylesheet" href="../assets/install.css">
   <link rel="stylesheet" href="../assets/converter.css">
   <script type="module" src="../assets/converter.js"></script>
+  <link rel="stylesheet" href="../assets/light-violet.css">
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="../" aria-label="Bookmarklet Market home"><img src="../assets/launcher-icon.png" width="44" height="44" alt=""><span class="brand-copy"><span class="brand-eyebrow">BOOKMARKLET</span><span class="brand-name">Market</span></span></a>
-    <nav class="header-actions" aria-label="Site navigation">
-      <a href="../">Market</a>
-      <a href="../install.en.html">Installation guide / 安裝教學</a>
-      <a href="https://github.com/tony92151/bookmarklet-script-manager-market" target="_blank" rel="noopener noreferrer">GitHub</a>
-      <a href="https://chromewebstore.google.com/detail/bookmarklet-script-manage/eodhedafaheiadegenafmjlkmifojemp" target="_blank" rel="noopener noreferrer">Extension</a>
-    </nav>
+  <header class="site-header unified-header">
+    <a class="brand" href="../redesign/" aria-label="Bookmarklet Market 介紹" data-i18n-aria-label="home" data-language-link="../redesign/"><img src="../assets/launcher-icon.png" width="40" height="40" alt=""><span class="brand-wordmark">Bookmarklet <span>Market</span></span></a>
+    <nav class="header-actions" aria-label="主選單" data-i18n-aria-label="navigation"><a href="../redesign/" data-i18n="navIntro" data-language-link="../redesign/">介紹</a><a href="../?lang=zh-TW" data-i18n="navMarket" data-language-link="../">工具集</a><a href="../install.html?lang=zh-TW" data-i18n="navInstall" data-language-link="../install.html">安裝教學</a><a href="../skill.html?lang=zh-TW" data-i18n="navMake" data-language-link="../skill.html">製作腳本</a><a href="../converter/?lang=zh-TW" aria-current="page" data-i18n="navConverter" data-language-link="../converter/">轉換工具</a></nav>
+    <select class="language-select" data-language-select aria-label="Language" data-i18n-aria-label="language"></select>
   </header>
 
   <main class="converter-page">
     <section class="converter-card" aria-labelledby="converter-title">
-      <p class="eyebrow">Local browser tool</p>
-      <h1 id="converter-title">URL Encoding Converter</h1>
-      <p class="hero-copy">Paste JavaScript or an encoded bookmarklet. Nothing is uploaded.</p>
+      <p class="eyebrow" data-i18n="localTool">在瀏覽器中完成</p>
+      <h1 id="converter-title" data-i18n="converterHeading">把程式碼，變成書籤工具。</h1>
+      <p class="hero-copy" data-i18n="converterIntro">貼上 JavaScript 或已編碼的 Bookmarklet 網址，即可編碼或還原。所有轉換都在你的瀏覽器完成，不會上傳內容。</p>
 
-      <label for="converter-input">Input</label>
-      <textarea id="converter-input" rows="12" spellcheck="false" placeholder="Paste JavaScript or javascript:%28... here"></textarea>
+      <div class="converter-workspace"><div class="converter-pane"><label for="converter-input" data-i18n="inputLabel">輸入內容</label>
+      <textarea id="converter-input" rows="12" spellcheck="false" data-i18n-placeholder="inputHint" placeholder="在這裡貼上 JavaScript 或 javascript:%28..."></textarea>
 
       <div class="converter-actions">
-        <button id="encode-button" type="button" class="primary-button">Encode as bookmarklet</button>
-        <button id="decode-button" type="button" class="secondary-button">Decode</button>
-        <button id="clear-button" type="button" class="secondary-button">Clear</button>
+        <button id="encode-button" type="button" class="primary-button" data-i18n="encode">編碼成 Bookmarklet</button>
+        <button id="decode-button" type="button" class="secondary-button" data-i18n="decode">還原程式碼</button>
+        <button id="clear-button" type="button" class="secondary-button" data-i18n="clear">清空</button>
       </div>
 
-      <label for="converter-output">Output</label>
+      </div><div class="converter-pane"><label for="converter-output" data-i18n="outputLabel">轉換結果</label>
       <textarea id="converter-output" rows="12" readonly spellcheck="false"></textarea>
 
       <div class="converter-actions">
-        <button id="copy-output-button" type="button" class="primary-button" disabled>Copy output</button>
+        <button id="copy-output-button" type="button" class="primary-button" disabled data-i18n="copyOutput">複製結果</button>
       </div>
-      <p id="converter-status" class="card-message" aria-live="polite"></p>
+      </div></div><p id="converter-status" class="card-message" aria-live="polite"></p>
     </section>
   </main>
 </body>

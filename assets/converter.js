@@ -1,3 +1,5 @@
+import { createLanguageController } from './language.js';
+import { pageMessages } from './page-locales.js';
 import { decodeBookmarklet, toBookmarkletUrl } from '../shared/bookmarklet.js';
 
 (() => {
@@ -11,8 +13,16 @@ import { decodeBookmarklet, toBookmarkletUrl } from '../shared/bookmarklet.js';
   const copyButton = document.getElementById('copy-output-button');
   const clearButton = document.getElementById('clear-button');
 
+  let statusKey = '';
+  const language = createLanguageController({
+    messages: Object.fromEntries(Object.entries(pageMessages).map(([code, m]) => [code, { documentTitle: m.converterTitle }])),
+    onChange() { status.textContent = statusKey ? language.t(statusKey) : ''; },
+  });
+  language.initialize();
+
   const setStatus = (message, kind = '') => {
-    status.textContent = message;
+    statusKey = message;
+    status.textContent = message ? language.t(message) : '';
     status.classList.remove('is-success', 'is-error');
     if (kind) status.classList.add(`is-${kind}`);
   };
@@ -24,26 +34,26 @@ import { decodeBookmarklet, toBookmarkletUrl } from '../shared/bookmarklet.js';
 
   encodeButton.addEventListener('click', () => {
     if (!input.value) {
-      setStatus('Paste JavaScript before encoding.', 'error');
+      setStatus('needCode', 'error');
       return;
     }
 
     setOutput(toBookmarkletUrl(input.value));
-    setStatus('Bookmarklet URL created.', 'success');
+    setStatus('encoded', 'success');
   });
 
   decodeButton.addEventListener('click', () => {
     if (!input.value) {
-      setStatus('Paste an encoded bookmarklet before decoding.', 'error');
+      setStatus('needEncoded', 'error');
       return;
     }
 
     try {
       setOutput(decodeBookmarklet(input.value));
-      setStatus('Bookmarklet decoded.', 'success');
+      setStatus('decoded', 'success');
     } catch (error) {
       setOutput('');
-      setStatus(error instanceof Error ? error.message : String(error), 'error');
+      setStatus('decodeError', 'error');
     }
   });
 
@@ -51,11 +61,11 @@ import { decodeBookmarklet, toBookmarkletUrl } from '../shared/bookmarklet.js';
     try {
       if (!navigator.clipboard?.writeText) throw new Error('Clipboard API unavailable');
       await navigator.clipboard.writeText(output.value);
-      setStatus('Output copied.', 'success');
+      setStatus('outputCopied', 'success');
     } catch {
       output.focus();
       output.select();
-      setStatus('Clipboard access failed. The output has been selected for manual copying.', 'error');
+      setStatus('outputFallback', 'error');
     }
   });
 

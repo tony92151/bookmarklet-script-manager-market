@@ -36,7 +36,7 @@ export default {
   "language": "語言",
   "home": "Bookmarklet Market 首頁",
   "navigation": "網站導覽",
-  "privacy": "隱私權政策（English / 繁體中文）",
+  "privacy": "隱私權政策",
   "metaDescription": "探索實用的書籤工具，複製 GitHub 原始碼連結。",
   "copyLinkLabel": "GitHub 原始碼連結"
 };

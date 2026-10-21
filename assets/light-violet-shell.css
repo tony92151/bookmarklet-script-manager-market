@@ -1,0 +1,16 @@
+/* Shared Light Violet Tech shell. See docs/brand-guidelines.md. */
+@font-face{font-family:Market Text;src:url('../redesign/fonts/stack-1.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:Market Text;src:url('../redesign/fonts/stack-2.ttf') format('truetype');font-weight:500 800;font-display:swap}
+:root{--bg:#f5f5fa;--surface:#fff;--surface-soft:#eeebf6;--text:#211b35;--muted:#686477;--border:#ded9eb;--primary:#7047eb;--primary-dark:#5832c4}
+body{background:var(--bg);color:var(--text);font-family:'Market Text','PingFang TC','Microsoft JhengHei',sans-serif;font-size:16px;line-height:1.7}
+.site-header.unified-header{width:min(1376px,calc(100% - 64px));margin:0 auto;padding:24px 0;display:flex;align-items:center;justify-content:space-between;gap:24px;max-width:none}
+.unified-header .brand{display:flex;align-items:center;gap:12px;flex:none;text-decoration:none;color:var(--text);font-size:18px;font-weight:500;letter-spacing:-.035em}
+.unified-header .brand img{width:40px;height:40px;border-radius:0;flex:none}
+.unified-header .brand-wordmark{display:block}.unified-header .brand-wordmark span{color:var(--primary);display:inline}
+.unified-header .header-actions{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.unified-header .header-actions a{display:inline-flex;align-items:center;min-height:44px;padding:8px 12px;color:var(--muted);text-decoration:none;font-size:14px;font-weight:500;white-space:nowrap;border-radius:0}
+.unified-header .header-actions a:hover,.unified-header .header-actions a[aria-current=page]{background:var(--surface-soft);color:var(--primary)}
+.unified-header .language-select,.site-language{font:inherit;font-size:13px;color:var(--muted);border:0;background:transparent;border-radius:0;max-width:155px}
+a:focus-visible,button:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--primary);outline-offset:4px}
+@media(max-width:1100px){.site-header.unified-header{flex-wrap:wrap;gap:12px}.unified-header .header-actions{order:3;flex-basis:100%}.unified-header .header-actions a:first-child{margin-left:-12px}.site-language,.language-select{margin-left:auto}}
+@media(max-width:760px){.site-header.unified-header{flex-direction:row;align-items:center;width:calc(100% - 40px);padding:20px 0}.unified-header .brand{font-size:16px;gap:8px}.unified-header .brand img{width:32px;height:32px}.unified-header .header-actions{gap:0}.unified-header .header-actions a{font-size:13px;padding:8px 10px}.unified-header .language-select,.site-language{font-size:12px;max-width:108px}}

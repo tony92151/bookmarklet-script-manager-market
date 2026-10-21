@@ -16,6 +16,6 @@ export default {
   copied: 'GitHub リンクをコピーしました。', copyFailed: 'クリップボードを利用できません。ダイアログからリンクをコピーしてください。',
   version: 'バージョン', updated: '更新日', before: '使用前', after: '使用後',
   language: '言語', home: 'Bookmarklet Market ホーム', navigation: 'サイトナビゲーション',
-  privacy: 'プライバシーポリシー（English / 繁體中文）',
+  privacy: 'プライバシーポリシー',
   metaDescription: '便利なブックマークレットを探して、GitHub のソースコードへのリンクをコピーできます。', copyLinkLabel: 'GitHub のソースコードへのリンク',
 };
