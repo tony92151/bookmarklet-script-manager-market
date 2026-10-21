@@ -127,6 +127,17 @@ When the user provides a screenshot or an implementation they like, identify the
 
 If additional UI pattern guides are added later, list each one in this section with its purpose, when to use it, when not to use it, compatible patterns, and an explicit raw GitHub URL. This keeps the main skill usable when shared as a single raw `skill.md` URL.
 
+## Output Format
+
+By default, output readable and maintainable multi-line JavaScript source code.
+
+- Use normal indentation and line breaks.
+- Prefer clarity and maintainability over minification.
+- Do not compress the bookmarklet into one line unless the user explicitly asks for a one-line or directly pasteable bookmarklet.
+- Do not add the `javascript:` prefix unless the user explicitly asks for a directly installable bookmarklet URL.
+- When the user asks for both readable source and a pasteable bookmarklet, provide the readable source first, then provide a separate one-line `javascript:` version.
+- Repository source files must remain readable raw JavaScript unless the project itself requires another format.
+
 ## General Workflow
 
 1. Understand the target site or page state, desired action, and expected output.
@@ -135,7 +146,7 @@ If additional UI pattern guides are added later, list each one in this section w
 4. Choose the smallest appropriate UI pattern from `UI Pattern Selection`. If the selected pattern points to an external guide, fetch and read that guide before implementing the UI.
 5. Implement the bookmarklet defensively and make repeated execution safe.
 6. Verify syntax and, when possible, test the relevant parsing, calculations, selectors, and state transitions against the supplied evidence.
-7. Deliver the result in the form the user requested. If they want a directly installable bookmarklet, provide a complete `javascript:(()=>{...})()` form. If they want maintainable source code or repository integration, provide raw JavaScript instead.
+7. Deliver readable, well-formatted multi-line JavaScript by default. Only provide a one-line `javascript:` bookmarklet URL when the user explicitly asks for a directly pasteable or installable bookmarklet.
 8. Explain the expected behavior and what evidence the user should provide if the bookmarklet does not work on the live page.
 
 ## Repository Integration
@@ -146,7 +157,7 @@ Do not assume that every user of this skill is working inside the repository. Re
 
 When repository integration is requested:
 
-1. Save raw JavaScript without a `javascript:` prefix or percent encoding at `bookmarklets/<kebab-case-name>.js`.
+1. Save readable raw JavaScript without a `javascript:` prefix or percent encoding at `bookmarklets/<kebab-case-name>.js`.
 2. Add or update a record in `bookmarklets/catalog.json` with a unique `id`, English and Traditional Chinese `name` and `description`, a `source` of `bookmarklets/<kebab-case-name>.js`, `matches`, `version`, and `updated`.
 3. The Bookmarklet Launcher reads `bookmarklets/catalog.json`, fetches each record's `source`, and converts the raw JavaScript into an encoded `javascript:` URL with `shared/bookmarklet.js`. Keep catalog source paths within `bookmarklets/`.
 4. If useful, inspect `bookmarklets/klook-booking-category-label.js` and its catalog record as a repository-specific reference example rather than as a universal requirement.
