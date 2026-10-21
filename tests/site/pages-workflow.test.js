@@ -16,7 +16,7 @@ test('Pages workflow publishes the site at the repository root', async (t) => {
 
   const projectDirectory = await mkdtemp(join(tmpdir(), 'pages-layout-'));
   t.after(() => rm(projectDirectory, { force: true, recursive: true }));
-  for (const path of ['index.html', 'install.html', 'install.en.html', 'privacy.html', 'skill.html', 'assets', 'converter', 'shared', 'bookmarklets', 'bookmarklets_screenshot']) {
+  for (const path of ['index.html', 'install.html', 'install.en.html', 'privacy.html', 'skill.html', 'assets', 'converter', 'shared', 'bookmarklets', 'bookmarklets_screenshot', 'redesign']) {
     await cp(path, join(projectDirectory, path), { recursive: true });
   }
 
@@ -26,11 +26,11 @@ test('Pages workflow publishes the site at the repository root', async (t) => {
   assert.ok(assemblyBlock, 'Pages workflow must define an assembly command');
   const command = assemblyBlock[1].split('\n').map((line) => line.slice(10)).join('\n');
   await execFile('/bin/sh', ['-eu', '-c', command], { cwd: projectDirectory });
-  for (const path of ['index.html', 'install.html', 'install.en.html', 'privacy.html', 'skill.html', 'assets/skill.js', 'assets/skill-locales.js', 'assets/skill.css', 'assets/install.js', 'assets/tutorial.css', 'converter/index.html', 'shared/bookmarklet.js', 'bookmarklets/catalog.json', 'bookmarklets_screenshot/staymiles-rate-helper-zh/before.png', 'bookmarklets_screenshot/staymiles-rate-helper-zh/after.png', 'bookmarklets_screenshot/eva-mileage-hotel-healper-zh/before.png', 'bookmarklets_screenshot/eva-mileage-hotel-healper-zh/after.png']) {
+  for (const path of ['index.html', 'install.html', 'install.en.html', 'privacy.html', 'skill.html', 'redesign/index.html', 'redesign/style.css', 'redesign/app.js', 'redesign/fonts/stack-0.ttf', 'assets/skill.js', 'assets/skill-locales.js', 'assets/skill.css', 'assets/install.js', 'assets/tutorial.css', 'converter/index.html', 'shared/bookmarklet.js', 'bookmarklets/catalog.json', 'bookmarklets_screenshot/staymiles-rate-helper-zh/before.png', 'bookmarklets_screenshot/staymiles-rate-helper-zh/after.png', 'bookmarklets_screenshot/eva-mileage-hotel-healper-zh/before.png', 'bookmarklets_screenshot/eva-mileage-hotel-healper-zh/after.png']) {
     assert.equal((await stat(join(projectDirectory, 'dist', path))).isFile(), true, path);
   }
   // Every shared module and locale must survive the real artifact assembly.
-  for (const path of ['assets/language.js', 'assets/tutorial.js', 'assets/tutorial-locales.js', 'assets/tutorial-scenes.css', 'assets/locales/index.js', ...['en', 'zh-TW', 'pt-BR', 'es', 'ja', 'zh-CN', 'ko', 'de', 'fr'].map((code) => `assets/locales/${code}.js`)]) {
+  for (const path of ['assets/page-locales.js', 'assets/privacy.js', 'assets/privacy-locales.js', 'redesign/locales.js', 'assets/light-violet.css', 'assets/light-violet-shell.css', 'assets/language.js', 'assets/tutorial.js', 'assets/tutorial-locales.js', 'assets/tutorial-scenes.css', 'assets/locales/index.js', ...['en', 'zh-TW', 'pt-BR', 'es', 'ja', 'zh-CN', 'ko', 'de', 'fr'].map((code) => `assets/locales/${code}.js`)]) {
     assert.equal((await stat(join(projectDirectory, 'dist', path))).isFile(), true, path);
   }
 });
